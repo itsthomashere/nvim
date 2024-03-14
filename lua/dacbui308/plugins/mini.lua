@@ -6,6 +6,7 @@ return {
 		require("mini.ai").setup()
 		require("mini.indentscope").setup()
 		require("mini.comment").setup()
-		require("mini.completion").setup()
+		require("mini.surround").setup()
+		require("mini.cursorword").setup()
 	end,
 }
