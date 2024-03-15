@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("dacbui308.plugins")
 
 function Background(color)
-	color = color or "gruvbox"
+	color = color or "rose-pine"
 	vim.cmd.colorscheme(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 end
