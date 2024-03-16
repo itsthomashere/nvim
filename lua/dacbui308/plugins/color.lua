@@ -1,8 +1,8 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
+	"rebelot/kanagawa.nvim",
+	name = "kanagawa",
 	config = function()
-		require("rose-pine").setup({})
-		vim.cmd("colorscheme rose-pine")
+		require("kanagawa").setup({})
+		vim.cmd("colorscheme kanagawa")
 	end,
 }
