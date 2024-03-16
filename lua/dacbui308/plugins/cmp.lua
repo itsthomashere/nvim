@@ -51,6 +51,9 @@ return { -- Autocompletion
 				{ name = "path" },
 				{ name = "buffer" },
 			},
+			window = {
+				completion = cmp.config.window.bordered({ border = "single" }),
+			},
 		})
 	end,
 }
