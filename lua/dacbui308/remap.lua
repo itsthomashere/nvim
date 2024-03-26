@@ -3,6 +3,7 @@ vim.cmd("set tabstop=3")
 vim.cmd("set softtabstop=3")
 vim.cmd("set shiftwidth=3")
 vim.cmd("set relativenumber")
+vim.cmd("set mouse=")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>px", vim.cmd.Ex)

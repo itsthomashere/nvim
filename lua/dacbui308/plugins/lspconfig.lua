@@ -75,9 +75,12 @@ return { -- LSP Configuration & Plugins
 			jdtls = {},
 			kotlin_language_server = {},
 			pylsp = {},
-			rust_analyzer = {},
+			rust_analyzer = {
+				cmd = { "rustup", "run", "stable", "rust-analyzer" },
+			},
 			sqlls = {},
 			tailwindcss = {},
+			ltex = {},
 		}
 
 		require("mason").setup()
