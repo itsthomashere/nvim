@@ -4,6 +4,8 @@ vim.cmd("set softtabstop=3")
 vim.cmd("set shiftwidth=3")
 vim.cmd("set relativenumber")
 vim.cmd("set mouse=")
+vim.cmd("set guicursor=n-v-c-i:block")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>px", vim.cmd.Ex)
