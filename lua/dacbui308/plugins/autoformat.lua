@@ -14,6 +14,7 @@ return { -- Autoformat
 			html = { { "prettierd", "prettier" } },
 			css = { { "prettierd", "prettier" } },
 			json = { { "prettierd", "prettier" } },
+			typescript = { { "prettierd", "prettier" } },
 		},
 	},
 }

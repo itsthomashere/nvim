@@ -13,7 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("dacbui308.plugins")
-
 function Transparent(color)
 	color = color or "kanagawa"
 	vim.cmd.colorscheme(color)
