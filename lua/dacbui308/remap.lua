@@ -1,10 +1,10 @@
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=3")
-vim.cmd("set softtabstop=3")
-vim.cmd("set shiftwidth=3")
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.cmd("set mouse=")
-vim.cmd("set guicursor=n-v-c-i:block")
+vim.cmd("set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

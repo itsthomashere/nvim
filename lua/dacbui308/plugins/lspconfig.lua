@@ -73,7 +73,6 @@ return { -- LSP Configuration & Plugins
 			html = {},
 			jsonls = {},
 			jdtls = {},
-			kotlin_language_server = {},
 			pylsp = {},
 			sqlls = {},
 			tailwindcss = {},
