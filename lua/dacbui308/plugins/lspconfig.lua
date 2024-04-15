@@ -76,7 +76,6 @@ return { -- LSP Configuration & Plugins
 			pylsp = {},
 			sqlls = {},
 			tailwindcss = {},
-			ltex = {},
 		}
 
 		require("mason").setup()
