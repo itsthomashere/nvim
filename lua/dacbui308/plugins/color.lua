@@ -1,8 +1,7 @@
 return {
-	"rebelot/kanagawa.nvim",
-	name = "kanagawa",
+	"nordtheme/vim",
+	name = "nord",
 	config = function()
-		require("kanagawa").load("dragon")
-		vim.cmd("colorscheme kanagawa-dragon")
+		vim.cmd("colorscheme nord")
 	end,
 }
