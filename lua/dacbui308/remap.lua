@@ -13,6 +13,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.opt.number = true
 vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
+})
 vim.opt.hlsearch = true
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
