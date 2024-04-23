@@ -1,6 +1,6 @@
 return {
-	"nordtheme/vim",
+	"morhetz/gruvbox",
 	config = function()
-		vim.cmd("colorscheme nord")
+		vim.cmd.colorscheme("gruvbox")
 	end,
 }
