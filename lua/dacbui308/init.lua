@@ -13,14 +13,3 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("dacbui308.plugins")
-
-function Transparent(color)
-	color = color or "gruvbox"
-	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermfg = "none" })
-	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermfg = "none" })
-
-	vim.api.nvim_set_hl(0, "NormalSB", { bg = "none", ctermfg = "none" })
-end
-
-Transparent()
