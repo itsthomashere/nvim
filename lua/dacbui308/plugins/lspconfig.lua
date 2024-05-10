@@ -94,5 +94,15 @@ return { -- LSP Configuration & Plugins
 				end,
 			},
 		})
+		require("lspconfig").rust_analyzer.setup({
+			PATH = "$HOME/.local/bin/rust-analyzer",
+			settings = {
+				["rust-analyzer"] = {
+					cmd = {
+						"rust-analyzer",
+					},
+				}
+			}
+		})
 	end,
 }
