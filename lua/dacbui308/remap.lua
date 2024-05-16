@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.cmd("set mouse=")
 
+vim.cmd("set clipboard=unnamedplus")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>px", vim.cmd.Ex)
@@ -13,6 +14,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.opt.number = true
 vim.opt.undofile = true
 vim.opt.autoread = true
+vim.o.termguicolors = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },

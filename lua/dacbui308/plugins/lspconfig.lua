@@ -76,6 +76,7 @@ return { -- LSP Configuration & Plugins
 			pylsp = {},
 			sqlls = {},
 			tailwindcss = {},
+			intelephense = {},
 		}
 
 		require("mason").setup()
@@ -95,17 +96,13 @@ return { -- LSP Configuration & Plugins
 			},
 		})
 		require("lspconfig").rust_analyzer.setup({
-			PATH = "$HOME/.local/bin/rust-analyzer",
 			settings = {
 				["rust-analyzer"] = {
 					cmd = {
+						"rustup",
+						"run",
+						"stable",
 						"rust-analyzer",
-					},
-					imports = {
-						granularity = {
-							group = "module",
-						},
-						prefix = "self",
 					},
 					cargo = {
 						buildScripts = {

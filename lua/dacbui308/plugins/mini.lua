@@ -41,6 +41,7 @@ return {
 				post = function() end,
 			},
 		})
+		require("mini.pairs").setup()
 		require("mini.surround").setup()
 		require("mini.cursorword").setup()
 		require("mini.tabline").setup()
