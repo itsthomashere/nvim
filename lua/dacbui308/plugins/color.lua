@@ -37,7 +37,6 @@ return {
 			vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermfg = "none" })
 			vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermfg = "none" })
 			vim.api.nvim_set_hl(0, "NormalSB", { bg = "none", ctermfg = "none" })
-			vim.api.nvim_set_hl(0, "CursorLine", { undercurl = true })
 		end
 		Transparent()
 	end,
