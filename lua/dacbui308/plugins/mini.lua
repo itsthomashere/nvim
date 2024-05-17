@@ -2,6 +2,7 @@ return {
 	"echasnovski/mini.nvim",
 	version = "*",
 	config = function()
+		require("mini.ai").setup({})
 		require("mini.comment").setup({
 
 			-- Options which control module behavior
@@ -41,7 +42,6 @@ return {
 				post = function() end,
 			},
 		})
-		require("mini.pairs").setup()
 		require("mini.surround").setup()
 		require("mini.cursorword").setup()
 		require("mini.tabline").setup()
