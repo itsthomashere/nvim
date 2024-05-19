@@ -44,7 +44,6 @@ return {
 		})
 		require("mini.surround").setup()
 		require("mini.cursorword").setup()
-		require("mini.tabline").setup()
 		require("mini.bufremove").setup()
 	end,
 }
