@@ -1,4 +1,15 @@
 return {
 	"folke/zen-mode.nvim",
-	opts = {},
+	opts = {
+		window = {
+			backdrop = 1,
+		},
+		plugins = {
+			tmux = { enabled = true },
+			alacritty = {
+				enabled = true,
+				font = "22.5",
+			},
+		},
+	},
 }

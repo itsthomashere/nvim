@@ -16,14 +16,29 @@ return { -- Autocompletion
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
 		"windwp/nvim-autopairs",
+		"onsails/lspkind.nvim",
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
 		luasnip.config.setup({})
 		cmp.setup({
+			formatting = {
+				expandable_indicator = true,
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					menu = {
+						buffer = "[Buffer]",
+						nvim_lsp = "[LSP]",
+						luasnip = "[LuaSnip]",
+						nvim_lua = "[Lua]",
+						latex_symbols = "[Latex]",
+					},
+				}),
+			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -52,7 +67,10 @@ return { -- Autocompletion
 				{ name = "path" },
 				{ name = "buffer" },
 			},
-			window = {},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 		})
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
