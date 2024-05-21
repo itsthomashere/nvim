@@ -1,6 +1,6 @@
 return { -- Autocompletion
 	"hrsh7th/nvim-cmp",
-	event = { "InsertEnter", "CmdlineEnter" },
+	event = { "InsertEnter" },
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
@@ -11,20 +11,22 @@ return { -- Autocompletion
 				return "make install_jsregexp"
 			end)(),
 		},
-		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-buffer",
+		"windwp/nvim-autopairs",
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		local luasnip = require("luasnip")
+		luasnip.config.setup({})
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
@@ -33,24 +35,25 @@ return { -- Autocompletion
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete({}),
+				["<C-l>"] = cmp.mapping(function()
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					end
+				end, { "i", "s" }),
+				["<C-h>"] = cmp.mapping(function()
+					if luasnip.locally_jumpable(-1) then
+						luasnip.jump(-1)
+					end
+				end, { "i", "s" }),
 			}),
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
-				{ name = "cmdline" },
 			},
 			window = {},
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline" },
-				}),
-				matching = { disallow_symbol_nonprefix_matching = false },
-			}),
 		})
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }
