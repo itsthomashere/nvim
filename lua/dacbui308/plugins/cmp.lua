@@ -27,9 +27,10 @@ return { -- Autocompletion
 		luasnip.config.setup({})
 		cmp.setup({
 			formatting = {
-				expandable_indicator = true,
 				format = lspkind.cmp_format({
 					mode = "symbol_text",
+					maxwidth = 25,
+					ellipsis_char = "...",
 					menu = {
 						buffer = "[Buffer]",
 						nvim_lsp = "[LSP]",

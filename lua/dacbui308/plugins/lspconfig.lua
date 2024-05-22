@@ -103,6 +103,18 @@ return { -- LSP Configuration & Plugins
 				"stable",
 				"rust-analyzer",
 			},
+			settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						buildScripts = {
+							enable = true,
+						},
+					},
+					procMacro = {
+						enable = true,
+					},
+				},
+			},
 		})
 	end,
 }

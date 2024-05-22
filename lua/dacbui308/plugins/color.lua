@@ -2,6 +2,10 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup()
+			vim.cmd.colorscheme("rose-pine-main")
+		end,
 	},
 	{
 		"rebelot/kanagawa.nvim",
@@ -11,7 +15,6 @@ return {
 				terminalColors = true,
 				dimInactive = true,
 			})
-			vim.cmd.colorscheme("kanagawa-wave")
 		end,
 	},
 	{ "catppuccin/nvim", name = "catppuccin" },
