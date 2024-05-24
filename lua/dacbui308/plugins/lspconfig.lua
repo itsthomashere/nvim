@@ -10,6 +10,9 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		vim.keymap.set("n", "<leader>h", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end)
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -48,6 +51,7 @@ return { -- LSP Configuration & Plugins
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
 		local servers = {
 
 			lua_ls = {
@@ -61,6 +65,7 @@ return { -- LSP Configuration & Plugins
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						-- diagnostics = { disable = { 'missing-fields' } },
+						hint = { enable = true },
 					},
 				},
 			},
@@ -76,7 +81,14 @@ return { -- LSP Configuration & Plugins
 			pylsp = {},
 			sqlls = {},
 			tailwindcss = {},
-			intelephense = {},
+			phpactor = {
+				cmd = { "phpactor", "language-server" },
+				filetypes = { "php" },
+				init_options = {
+					["language_server_phpstan.enabled"] = true,
+					["language_server_psalm.enabled"] = true,
+				},
+			},
 		}
 
 		require("mason").setup()
