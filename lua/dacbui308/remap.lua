@@ -7,14 +7,15 @@ vim.opt.colorcolumn = "80"
 vim.opt.smartindent = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("n", "<leader>px", vim.cmd.Vexplore)
+vim.g.netrw_liststyle = 3
+vim.keymap.set("n", "<leader>px", "<cmd>30Vexplore<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.opt.number = true
 vim.opt.undofile = true
 vim.opt.autoread = true
 vim.o.termguicolors = true
-vim.o.guicursor = "n-v-c-i-sm:block,i:block-blinkwait100-blinkoff500-blinkon500-Cursor/lCursor"
+vim.o.guicursor = ""
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },

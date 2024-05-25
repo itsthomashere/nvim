@@ -81,6 +81,7 @@ return { -- LSP Configuration & Plugins
 			pylsp = {},
 			sqlls = {},
 			tailwindcss = {},
+			kotlin_language_server = {},
 			phpactor = {
 				cmd = { "phpactor", "language-server" },
 				filetypes = { "php" },
