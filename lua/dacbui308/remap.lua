@@ -3,11 +3,12 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "90"
 vim.opt.smartindent = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = 0
 vim.keymap.set("n", "<leader>px", "<cmd>30Vexplore<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

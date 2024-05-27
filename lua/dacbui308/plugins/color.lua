@@ -1,30 +1,38 @@
 return {
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup()
-			function Transparent(color)
-				if color == nil then
-					return
-				end
-				vim.cmd.colorscheme(color)
-				vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermfg = "none" })
-				vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermfg = "none" })
-			end
-			Transparent("rose-pine-main")
-		end,
-	},
-	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("kanagawa").setup({
-				compile = true,
-				terminalColors = true,
-				dimInactive = true,
-			})
-		end,
-	},
-	{ "catppuccin/nvim", name = "catppuccin" },
-	config = function() end,
+	"navarasu/onedark.nvim",
+	config = function()
+		-- Lua
+		require("onedark").setup({
+			-- Main options --
+			style = "deep",
+			transparent = false,
+			term_colors = true,
+			ending_tildes = false,
+			cmp_itemkind_reverse = false,
+			code_style = {
+				comments = "italic",
+				keywords = "none",
+				functions = "none",
+				strings = "none",
+				variables = "none",
+			},
+
+			-- Lualine options --
+			lualine = {
+				transparent = false, -- lualine center bar transparency
+			},
+
+			-- Custom Highlights --
+			colors = {}, -- Override default colors
+			highlights = {},
+
+			-- Plugins Config --
+			diagnostics = {
+				darker = true, -- darker colors for diagnostic
+				undercurl = true, -- use undercurl instead of underline for diagnostics
+				background = true, -- use background color for virtual text
+			},
+		})
+		vim.cmd.colorscheme("onedark")
+	end,
 }
