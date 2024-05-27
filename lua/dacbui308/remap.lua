@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
-vim.keymap.set("n", "<leader>px", "<cmd>30Vexplore<CR>")
+vim.keymap.set("n", "<leader>px", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.opt.number = true
@@ -41,3 +41,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+function Transarent(color)
+	if color == nil then
+		return
+	end
+	vim.cmd.colorscheme(color)
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermfg = "none" })
+	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermfg = "none" })
+end

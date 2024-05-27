@@ -1,38 +1,19 @@
 return {
-	"navarasu/onedark.nvim",
+	"rebelot/kanagawa.nvim",
 	config = function()
-		-- Lua
-		require("onedark").setup({
-			-- Main options --
-			style = "deep",
-			transparent = false,
-			term_colors = true,
-			ending_tildes = false,
-			cmp_itemkind_reverse = false,
-			code_style = {
-				comments = "italic",
-				keywords = "none",
-				functions = "none",
-				strings = "none",
-				variables = "none",
-			},
-
-			-- Lualine options --
-			lualine = {
-				transparent = false, -- lualine center bar transparency
-			},
-
-			-- Custom Highlights --
-			colors = {}, -- Override default colors
-			highlights = {},
-
-			-- Plugins Config --
-			diagnostics = {
-				darker = true, -- darker colors for diagnostic
-				undercurl = true, -- use undercurl instead of underline for diagnostics
-				background = true, -- use background color for virtual text
-			},
+		require("kanagawa").setup({
+			compile = true, -- enable compiling the colorscheme
+			undercurl = true, -- enable undercurls
+			commentStyle = { italic = true },
+			functionStyle = {},
+			keywordStyle = { italic = true },
+			statementStyle = { bold = true },
+			transparent = false, -- do not set background color
+			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+			terminalColors = true, -- define vim.g.terminal_color_{0,17}
 		})
-		vim.cmd.colorscheme("onedark")
+
+		-- setup must be called before loading
+		vim.cmd.colorscheme("kanagawa-wave")
 	end,
 }
