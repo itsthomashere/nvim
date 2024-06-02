@@ -9,6 +9,6 @@ return {
 				transparency = false,
 			},
 		})
-		Transarent("rose-pine-moon")
+		Transarent("rose-pine-main")
 	end,
 }
