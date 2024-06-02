@@ -3,10 +3,15 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
+vim.o.mouse = ""
+vim.o.clipboard = "unnamedplus"
+vim.opt.updatetime = 50
 vim.opt.colorcolumn = "90"
 vim.opt.smartindent = true
+vim.opt.scrolloff = 10
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.have_nerd_font = true
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.keymap.set("n", "<leader>px", "<cmd>Ex<CR>")
@@ -47,6 +52,6 @@ function Transarent(color)
 		return
 	end
 	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermfg = "none" })
-	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermfg = "none" })
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 end
