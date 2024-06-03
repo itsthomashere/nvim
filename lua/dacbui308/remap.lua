@@ -12,7 +12,7 @@ vim.opt.scrolloff = 10
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 4
 vim.g.netrw_banner = 0
 vim.keymap.set("n", "<leader>px", "<cmd>Ex<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

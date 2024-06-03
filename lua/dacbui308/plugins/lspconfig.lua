@@ -118,6 +118,11 @@ return { -- LSP Configuration & Plugins
 			},
 			settings = {
 				["rust-analyzer"] = {
+					checkOnSave = true,
+					check = {
+						command = "clippy",
+						features = "all",
+					},
 					cargo = {
 						buildScripts = {
 							enable = true,
