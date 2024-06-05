@@ -1,8 +1,17 @@
 return {
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				variant = "main",
+				styles = {
+					italic = false,
+				},
+			})
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	name = "onedark",
@@ -26,14 +35,14 @@ return {
 	-- 		vim.cmd.colorscheme("onedark")
 	-- 	end,
 	-- },
-	{
-		"folke/tokyonight.nvim",
-		config = function()
-			require("tokyonight").setup({
-				style = "moon",
-				transparent = true,
-			})
-			Transarent("tokyonight")
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "moon",
+	-- 			transparent = true,
+	-- 		})
+	-- 		Transarent("tokyonight")
+	-- 	end,
+	-- },
 }

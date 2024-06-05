@@ -19,7 +19,7 @@ vim.opt.number = true
 vim.opt.undofile = true
 vim.opt.autoread = true
 vim.o.termguicolors = true
-vim.o.guicursor = ""
+vim.o.guicursor = "n-v-c-i-sm:block,i:block-blinkwait100-blinkoff500-blinkon500-Cursor/lCursor"
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },
