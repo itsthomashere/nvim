@@ -1,17 +1,17 @@
 return {
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				variant = "main",
-				styles = {
-					italic = false,
-				},
-			})
-			vim.cmd.colorscheme("rose-pine")
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			variant = "main",
+	-- 			styles = {
+	-- 				italic = false,
+	-- 			},
+	-- 		})
+	-- 		vim.cmd.colorscheme("rose-pine")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	name = "onedark",
@@ -39,10 +39,43 @@ return {
 	-- 	"folke/tokyonight.nvim",
 	-- 	config = function()
 	-- 		require("tokyonight").setup({
-	-- 			style = "moon",
-	-- 			transparent = true,
+	-- 			style = "storm",
 	-- 		})
-	-- 		Transarent("tokyonight")
+	-- 		vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			compile = true,
+	-- 			terminalColors = true,
+	-- 			theme = "dragon",
+	-- 			background = {
+	-- 				dark = "dragon",
+	-- 				light = "lotus",
+	-- 			},
+	-- 		})
+	-- 		vim.cmd.colorscheme("kanagawa")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("carbonfox")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"marko-cerovac/material.nvim",
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("material-darker")
+	-- 	end,
+	-- },
+	{
+		"Mofiqul/vscode.nvim",
+		config = function()
+			require("vscode").setup()
+			vim.cmd.colorscheme("vscode")
+		end,
+	},
 }
