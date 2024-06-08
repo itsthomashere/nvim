@@ -42,8 +42,7 @@ return {
 				post = function() end,
 			},
 		})
-		require("mini.surround").setup()
 		require("mini.cursorword").setup()
-		require("mini.bufremove").setup()
+		require("mini.indentscope").setup()
 	end,
 }

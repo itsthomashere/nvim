@@ -59,23 +59,23 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	config = function()
-	-- 		vim.cmd.colorscheme("carbonfox")
-	-- 	end,
-	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		config = function()
+			vim.cmd.colorscheme("carbonfox")
+		end,
+	},
 	-- {
 	-- 	"marko-cerovac/material.nvim",
 	-- 	config = function()
 	-- 		vim.cmd.colorscheme("material-darker")
 	-- 	end,
 	-- },
-	{
-		"Mofiqul/vscode.nvim",
-		config = function()
-			require("vscode").setup()
-			vim.cmd.colorscheme("vscode")
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	config = function()
+	-- 		require("vscode").setup()
+	-- 		vim.cmd.colorscheme("vscode")
+	-- 	end,
+	-- },
 }

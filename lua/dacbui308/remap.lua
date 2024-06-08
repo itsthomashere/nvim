@@ -3,9 +3,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
-vim.o.mouse = ""
 vim.opt.updatetime = 50
-vim.opt.smartindent = true
 vim.opt.scrolloff = 10
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
