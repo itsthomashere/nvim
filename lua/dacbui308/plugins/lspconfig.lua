@@ -82,14 +82,6 @@ return { -- LSP Configuration & Plugins
 			jsonls = {},
 			sqlls = {},
 			tailwindcss = {},
-			phpactor = {
-				cmd = { "phpactor", "language-server" },
-				filetypes = { "php" },
-				init_options = {
-					["language_server_phpstan.enabled"] = false,
-					["language_server_psalm.enabled"] = true,
-				},
-			},
 		}
 
 		require("mason").setup()

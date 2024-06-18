@@ -15,13 +15,11 @@ return { -- Autocompletion
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-buffer",
-		"windwp/nvim-autopairs",
 		"onsails/lspkind.nvim",
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 		luasnip.config.setup({})
@@ -47,6 +45,8 @@ return { -- Autocompletion
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
 			mapping = cmp.mapping.preset.insert({
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
@@ -75,6 +75,5 @@ return { -- Autocompletion
 				documentation = cmp.config.window.bordered(),
 			},
 		})
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }

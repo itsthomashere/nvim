@@ -5,6 +5,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 10
+vim.opt.colorcolumn = "90"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true

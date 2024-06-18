@@ -24,15 +24,12 @@ return {
 				},
 				sections = {
 					lualine_a = { "mode" },
-					lualine_b = {},
+					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {},
 					lualine_x = {},
 				},
 				inactive_sections = {},
-				tabline = {
-					lualine_b = { "branch", "diff", "diagnostics" },
-					lualine_c = { "buffers" },
-				},
+				tabline = {},
 				winbar = {},
 				inactive_winbar = {},
 				extensions = {},
