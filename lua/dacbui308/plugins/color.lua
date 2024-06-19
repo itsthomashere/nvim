@@ -50,27 +50,22 @@ return {
 	-- 		vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			compile = true,
-	-- 			terminalColors = true,
-	-- 			theme = "wave",
-	-- 			background = {
-	-- 				dark = "wave",
-	-- 				light = "lotus",
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("kanagawa")
-	-- 	end,
-	-- },
 	{
-		"EdenEast/nightfox.nvim",
+		"rebelot/kanagawa.nvim",
 		config = function()
-			vim.cmd.colorscheme("carbonfox")
+			require("kanagawa").setup({
+				compile = true,
+				terminalColors = true,
+			})
+			vim.cmd.colorscheme("kanagawa-wave")
 		end,
 	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("carbonfox")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"projekt0n/github-nvim-theme",
 	-- 	config = function()
