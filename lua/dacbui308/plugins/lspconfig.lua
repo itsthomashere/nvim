@@ -7,7 +7,7 @@ return { -- LSP Configuration & Plugins
 
 		{ "j-hui/fidget.nvim", opts = {} },
 
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/lazydev.nvim", opts = {} },
 	},
 	config = function()
 		vim.keymap.set("n", "<leader>h", function()

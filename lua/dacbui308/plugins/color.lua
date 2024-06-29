@@ -1,17 +1,17 @@
 return {
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			variant = "main",
-	-- 			styles = {
-	-- 				italic = false,
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("rose-pine")
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				variant = "main",
+				styles = {
+					italic = false,
+				},
+			})
+			vim.cmd.colorscheme("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	name = "onedark",
@@ -50,16 +50,16 @@ return {
 	-- 		vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("kanagawa").setup({
-				compile = true,
-				terminalColors = true,
-			})
-			vim.cmd.colorscheme("kanagawa-wave")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			compile = true,
+	-- 			terminalColors = true,
+	-- 		})
+	-- 		vim.cmd.colorscheme("kanagawa-wave")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
