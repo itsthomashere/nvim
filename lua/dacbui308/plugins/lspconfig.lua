@@ -1,10 +1,6 @@
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
 		{ "j-hui/fidget.nvim", opts = {} },
 
 		{ "folke/lazydev.nvim", opts = {} },
@@ -51,56 +47,12 @@ return { -- LSP Configuration & Plugins
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		local servers = {
+		local lspconfig = require("lspconfig")
 
-			lua_ls = {
-				-- cmd = {...},
-				-- filetypes { ...},
-				-- capabilities = {},
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						-- diagnostics = { disable = { 'missing-fields' } },
-						hint = { enable = true },
-					},
-				},
-			},
-			tsserver = {
-				cmd = {
-					"typescript-language-server",
-					"--stdio",
-				},
-			},
-			cssls = {},
-			dockerls = {},
-			docker_compose_language_service = {},
-			html = {},
-			jsonls = {},
-			sqlls = {},
-			tailwindcss = {},
-		}
-
-		require("mason").setup()
-
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format lua code
-		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-		require("mason-lspconfig").setup({
-			handlers = {
-				function(server_name)
-					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
-				end,
-			},
-		})
-		require("lspconfig").rust_analyzer.setup({
+		--- [Setup Rust Analyzer with Clippy]
+		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 			cmd = {
 				"rustup",
@@ -125,6 +77,97 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+		})
+
+		--- [Setup Lua language server]
+		lspconfig.lua_ls.setup({
+			on_init = function(client)
+				local path = client.workspace_folders[1].name
+				if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+					return
+				end
+
+				client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+					runtime = {
+						-- Tell the language server which version of Lua you're using
+						-- (most likely LuaJIT in the case of Neovim)
+						version = "LuaJIT",
+					},
+					-- Make the server aware of Neovim runtime files
+					workspace = {
+						checkThirdParty = false,
+						library = {
+							vim.env.VIMRUNTIME,
+							-- Depending on the usage, you might want to add additional paths here.
+							-- "${3rd}/luv/library"
+							-- "${3rd}/busted/library",
+						},
+						-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+						-- library = vim.api.nvim_get_runtime_file("", true)
+					},
+				})
+			end,
+			capabilities = capabilities,
+
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
+				},
+			},
+		})
+
+		--- [Setup Typescript Language server]
+		lspconfig.tsserver.setup({
+			capabilities = capabilities,
+		})
+
+		--- [Setup Python Language server]
+		lspconfig.pylsp.setup({
+			settings = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = { "W391" },
+							maxLineLength = 100,
+						},
+					},
+				},
+			},
+		})
+
+		--- [Setup PHPActor]
+		lspconfig.phpactor.setup({
+			capabilities = capabilities,
+			init_options = {
+				["language_server_phpstan.enabled"] = true,
+				["language_server_php_cs_fixer.enabled"] = true,
+			},
+		})
+
+		--- [Setup CSS and Tailwind language Server]
+		lspconfig.tailwindcss.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+		})
+
+		--- [HTML and HTMX setup]
+		lspconfig.html.setup({
+			capabilities = capabilities,
+		})
+		-- lspconfig.htmx.setup({
+		-- 	capabilities = capabilities,
+		-- })
+
+		--- [Docker and other utilities setup]
+		lspconfig.docker_compose_language_service.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.jsonls.setup({
+			capabilities = capabilities,
 		})
 	end,
 }

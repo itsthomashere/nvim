@@ -12,11 +12,11 @@ return { -- Autoformat
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				javascript = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				css = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
+				javascript = { { "prettier" } },
+				html = { { "prettier" } },
+				css = { { "prettier" } },
+				json = { { "prettier" } },
+				typescript = { { "prettier" } },
 			},
 		})
 
