@@ -1,6 +1,10 @@
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+
 		{ "j-hui/fidget.nvim", opts = {} },
 
 		{ "folke/lazydev.nvim", opts = {} },
@@ -47,40 +51,10 @@ return { -- LSP Configuration & Plugins
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-		local lspconfig = require("lspconfig")
+		local servers = {
 
-		--- [Setup Rust Analyzer with Clippy]
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
-			cmd = {
-				"rustup",
-				"run",
-				"stable",
-				"rust-analyzer",
-			},
-			settings = {
-				["rust-analyzer"] = {
-					checkOnSave = true,
-					check = {
-						command = "clippy",
-						features = "all",
-					},
-					cargo = {
-						buildScripts = {
-							enable = true,
-						},
-					},
-					procMacro = {
-						enable = true,
-					},
-				},
-			},
-		})
-
-		--- [Setup Lua language server]
-		lspconfig.lua_ls.setup({
+			lua_ls = {
 			on_init = function(client)
 				local path = client.workspace_folders[1].name
 				if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
@@ -115,59 +89,63 @@ return { -- LSP Configuration & Plugins
 						version = "LuaJIT",
 					},
 				},
+			},},
+			tsserver = {
+				cmd = {
+					"typescript-language-server",
+					"--stdio",
+				},
+			},
+			cssls = {},
+			dockerls = {},
+			docker_compose_language_service = {},
+			html = {},
+			jsonls = {},
+			sqlls = {},
+			tailwindcss = {},
+		}
+
+		require("mason").setup()
+
+		local ensure_installed = vim.tbl_keys(servers or {})
+		vim.list_extend(ensure_installed, {
+			"stylua", -- Used to format lua code
+		})
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+		require("mason-lspconfig").setup({
+			handlers = {
+				function(server_name)
+					local server = servers[server_name] or {}
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					require("lspconfig")[server_name].setup(server)
+				end,
 			},
 		})
-
-		--- [Setup Typescript Language server]
-		lspconfig.tsserver.setup({
+		require("lspconfig").rust_analyzer.setup({
 			capabilities = capabilities,
-		})
-
-		--- [Setup Python Language server]
-		lspconfig.pylsp.setup({
+			cmd = {
+				"rustup",
+				"run",
+				"stable",
+				"rust-analyzer",
+			},
 			settings = {
-				pylsp = {
-					plugins = {
-						pycodestyle = {
-							ignore = { "W391" },
-							maxLineLength = 100,
+				["rust-analyzer"] = {
+					checkOnSave = true,
+					check = {
+						command = "clippy",
+						features = "all",
+					},
+					cargo = {
+						buildScripts = {
+							enable = true,
 						},
+					},
+					procMacro = {
+						enable = true,
 					},
 				},
 			},
-		})
-
-		--- [Setup PHPActor]
-		lspconfig.phpactor.setup({
-			capabilities = capabilities,
-			init_options = {
-				["language_server_phpstan.enabled"] = true,
-				["language_server_php_cs_fixer.enabled"] = true,
-			},
-		})
-
-		--- [Setup CSS and Tailwind language Server]
-		lspconfig.tailwindcss.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.cssls.setup({
-			capabilities = capabilities,
-		})
-
-		--- [HTML and HTMX setup]
-		lspconfig.html.setup({
-			capabilities = capabilities,
-		})
-		-- lspconfig.htmx.setup({
-		-- 	capabilities = capabilities,
-		-- })
-
-		--- [Docker and other utilities setup]
-		lspconfig.docker_compose_language_service.setup({
-			capabilities = capabilities,
-		})
-		lspconfig.jsonls.setup({
-			capabilities = capabilities,
 		})
 	end,
 }

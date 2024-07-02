@@ -9,7 +9,7 @@ return {
 					italic = false,
 				},
 			})
-			vim.cmd.colorscheme("rose-pine")
+			Transarent("rose-pine")
 		end,
 	},
 	-- {
