@@ -13,7 +13,7 @@ return {
 		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 		vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 		require("neo-tree").setup({
-			close_if_last_window = false,
+			close_if_last_window = true,
 			enable_git_status = true,
 			enable_diagnostics = true,
 			git_status = {
@@ -31,10 +31,20 @@ return {
 					conflict = "",
 				},
 			},
-			event_handlers = {},
+			event_handlers = {
+				{
+					event = "file_open_requested",
+					handler = function()
+						-- auto close
+						-- vimc.cmd("Neotree close")
+						-- OR
+						require("neo-tree.command").execute({ action = "close" })
+					end,
+				},
+			},
 			window = {
 				position = "right",
-				width = 40,
+				width = 35,
 				mapping_options = {
 					noremap = true,
 					nowait = true,

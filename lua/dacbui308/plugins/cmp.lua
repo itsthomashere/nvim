@@ -30,13 +30,15 @@ return { -- Autocompletion
 					maxwidth = 25,
 					ellipsis_char = "...",
 					menu = {
-						buffer = "[Buffer]",
+						buffer = "[Buff]",
 						nvim_lsp = "[LSP]",
 						luasnip = "[LuaSnip]",
 						nvim_lua = "[Lua]",
 						latex_symbols = "[Latex]",
 					},
 				}),
+				fields = { "kind", "abbr", "menu" },
+				expandable_indicator = true,
 			},
 			snippet = {
 				expand = function(args)
@@ -65,10 +67,10 @@ return { -- Autocompletion
 				end, { "i", "s" }),
 			}),
 			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "path" },
-				{ name = "buffer" },
+				{ name = "nvim_lsp", priority = 1000 },
+				{ name = "luasnip", priority = 700 },
+				{ name = "path", priority = 250 },
+				{ name = "buffer", priority = 500 },
 			},
 			window = {
 				completion = cmp.config.window.bordered(),

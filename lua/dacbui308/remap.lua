@@ -17,7 +17,7 @@ vim.opt.number = true
 vim.opt.undofile = true
 vim.opt.autoread = true
 vim.o.termguicolors = true
-vim.o.guicursor = "n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:ver25-Cursor/lCursor"
+vim.o.guicursor = ""
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },
@@ -30,6 +30,10 @@ vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 vim.keymap.set("n", "<A-x>", vim.cmd.bd)
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
+vim.keymap.set("n", "<c-h>", "<c-w>h<CR>")
+vim.keymap.set("n", "<c-j>", "<c-w>j<CR>")
+vim.keymap.set("n", "<c-k>", "<c-w>k<CR>")
+vim.keymap.set("n", "<c-l>", "<c-w>l<CR>")
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -44,8 +48,8 @@ function Transarent(color)
 		return
 	end
 	vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", ctermbg = "none" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 end

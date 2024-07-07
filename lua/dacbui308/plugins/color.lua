@@ -1,24 +1,24 @@
 return {
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				variant = "main",
-				styles = {
-					italic = false,
-				},
-			})
-			Transarent("rose-pine")
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			variant = "main",
+	-- 			styles = {
+	-- 				italic = false,
+	-- 			},
+	-- 		})
+	-- 		Transarent("rose-pine")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	name = "onedark",
 	-- 	config = function()
 	-- 		require("onedark").setup({
 	-- 			style = "deep", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-	-- 			transparent = false, -- Show/hide background
+	-- 			transparent = true, -- Show/hide background
 	-- 			term_colors = true, -- Change terminal color as per the selected theme style
 	-- 			ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 	-- 			cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -129,4 +129,42 @@ return {
 	-- 		vim.cmd.colorscheme("catppuccin")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"marko-cerovac/material.nvim",
+	-- 	config = function()
+	-- 		require("material").setup({
+	-- 			contrast = {
+	-- 				terminal = true,
+	-- 				sidebars = true,
+	-- 				floating_windows = true,
+	-- 				cursor_line = true,
+	-- 			},
+	-- 			style = {},
+	-- 			plugins = {
+	-- 				"fidget",
+	-- 				"gitsigns",
+	-- 				"harpoon",
+	-- 				"mini",
+	-- 				"neo-tree",
+	-- 				"nvim-cmp",
+	-- 				"nvim-web-devicons",
+	-- 				"telescope",
+	-- 			},
+	--
+	-- 			disable = {
+	-- 				colored_cursor = true,
+	-- 				background = false,
+	-- 			},
+	-- 		})
+	--
+	-- 		vim.g.material_style = "deep ocean"
+	-- 		vim.cmd.colorscheme("material")
+	-- 	end,
+	-- },
+	{
+		"RRethy/base16-nvim",
+		config = function()
+			vim.cmd.colorscheme("base16-default-dark")
+		end,
+	},
 }
