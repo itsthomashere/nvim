@@ -157,13 +157,21 @@ return {
 	-- 			},
 	-- 		})
 	--
-	-- 		vim.g.material_style = "deep ocean"
 	-- 		vim.cmd.colorscheme("material")
 	-- 	end,
 	-- },
 	{
 		"RRethy/base16-nvim",
 		config = function()
+			require("base16-colorscheme").with_config({
+				telescope = true,
+				indentblankline = true,
+				notify = true,
+				ts_rainbow = true,
+				cmp = true,
+				illuminate = true,
+				dapui = false,
+			})
 			vim.cmd.colorscheme("base16-default-dark")
 		end,
 	},
