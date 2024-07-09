@@ -149,12 +149,6 @@ return { -- LSP Configuration & Plugins
 			},
 		})
 
-		vim.diagnostic.config({
-			virtual_text = true,
-			signs = true,
-			underline = true,
-			update_in_insert = true,
-		})
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "rounded",
 		})

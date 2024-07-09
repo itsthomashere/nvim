@@ -172,7 +172,7 @@ return {
 				illuminate = true,
 				dapui = false,
 			})
-			vim.cmd.colorscheme("base16-default-dark")
+			vim.cmd.colorscheme("base16-rose-pine")
 		end,
 	},
 }
