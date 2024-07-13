@@ -50,16 +50,16 @@ return {
 	-- 		vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			compile = true,
-	-- 			terminalColors = true,
-	-- 		})
-	-- 		vim.cmd.colorscheme("kanagawa-wave")
-	-- 	end,
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				compile = true,
+				terminalColors = true,
+			})
+			vim.cmd.colorscheme("kanagawa-wave")
+		end,
+	},
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
@@ -160,19 +160,19 @@ return {
 	-- 		vim.cmd.colorscheme("material")
 	-- 	end,
 	-- },
-	{
-		"RRethy/base16-nvim",
-		config = function()
-			require("base16-colorscheme").with_config({
-				telescope = true,
-				indentblankline = true,
-				notify = true,
-				ts_rainbow = true,
-				cmp = true,
-				illuminate = true,
-				dapui = false,
-			})
-			vim.cmd.colorscheme("base16-ayu-dark")
-		end,
-	},
+	-- {
+	-- 	"RRethy/base16-nvim",
+	-- 	config = function()
+	-- 		require("base16-colorscheme").with_config({
+	-- 			telescope = true,
+	-- 			indentblankline = true,
+	-- 			notify = true,
+	-- 			ts_rainbow = true,
+	-- 			cmp = true,
+	-- 			illuminate = true,
+	-- 			dapui = false,
+	-- 		})
+	-- 		vim.cmd.colorscheme("base16-ayu-dark")
+	-- 	end,
+	-- },
 }

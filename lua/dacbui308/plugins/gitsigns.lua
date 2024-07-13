@@ -65,8 +65,6 @@ return {
 						gitsigns.nav_hunk("prev")
 					end
 				end)
-				map("n", "<leader>gp", gitsigns.preview_hunk)
-				map("n", "<leader>gl", gitsigns.toggle_current_line_blame)
 			end,
 		})
 	end,

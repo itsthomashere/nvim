@@ -1,7 +1,7 @@
 return {
 	"danymat/neogen",
 	config = function()
-		require("neogen").setup({ snippet_engine = "luasnip" })
+		require("neogen").setup({})
 		vim.keymap.set("n", "<leader>tf", function()
 			require("neogen").generate({ type = "func" })
 		end)
