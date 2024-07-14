@@ -38,28 +38,19 @@ return {
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	config = function()
-	-- 		require("tokyonight").setup({
-	-- 			style = "storm",
-	-- 			transparent = true,
-	-- 			terminal_colors = true,
-	-- 			styles = {
-	-- 				sidebars = "dark",
-	-- 				floats = "dark",
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("tokyonight")
+	-- 		vim.cmd.colorscheme("tokyonight-night")
 	-- 	end,
 	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		config = function()
-			require("kanagawa").setup({
-				compile = true,
-				terminalColors = true,
-			})
-			vim.cmd.colorscheme("kanagawa-wave")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			compile = true,
+	-- 			terminalColors = true,
+	-- 		})
+	-- 		vim.cmd.colorscheme("kanagawa-wave")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	config = function()
@@ -86,6 +77,15 @@ return {
 	-- 		vim.cmd.colorscheme("gruvbox")
 	-- 	end,
 	-- },
+	{
+		"Mofiqul/dracula.nvim",
+		config = function()
+			require("dracula").setup({
+				transparent_bg = true,
+			})
+			vim.cmd.colorscheme("dracula")
+		end,
+	},
 	-- {
 	-- 	"catppuccin/nvim",
 	-- 	name = "catppuccin",
