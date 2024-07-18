@@ -20,8 +20,8 @@ vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.colorcolumn = "90"
 
--- vim.g.loaded_netrwPlugin = 0
--- vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
+vim.g.loaded_netrw = 0
 
 vim.opt.autoread = true
 vim.o.termguicolors = true
