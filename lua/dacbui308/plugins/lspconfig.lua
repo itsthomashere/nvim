@@ -91,12 +91,6 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			tsserver = {
-				cmd = {
-					"typescript-language-server",
-					"--stdio",
-				},
-			},
 			cssls = {},
 			dockerls = {},
 			docker_compose_language_service = {},
@@ -147,6 +141,13 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+		})
+
+		require("lspconfig").tsserver.setup({
+			capabilities = capabilities,
+			cmd = { "typescript-language-server", "--stdio" },
+			settings = {},
+			single_file_support = false,
 		})
 
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {

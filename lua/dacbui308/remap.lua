@@ -35,7 +35,7 @@ vim.keymap.set("n", "<c-j>", "<c-w>j<CR>")
 vim.keymap.set("n", "<c-k>", "<c-w>k<CR>")
 vim.keymap.set("n", "<c-l>", "<c-w>l<CR>")
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
-vim.keymap.set("n", "<leader>px", ":Ex<CR>")
+-- vim.keymap.set("n", "<leader>px", ":Ex<CR>")
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
