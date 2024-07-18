@@ -1,4 +1,4 @@
-return { -- Autoformat
+return {
 	"stevearc/conform.nvim",
 	config = function()
 		require("conform").setup({
@@ -11,7 +11,7 @@ return { -- Autoformat
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "black" },
 				javascript = { { "prettier" } },
 				html = { { "prettier" } },
 				css = { { "prettier" } },
