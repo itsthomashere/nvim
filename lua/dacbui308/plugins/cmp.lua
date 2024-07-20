@@ -4,6 +4,7 @@ return { -- Autocompletion
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-buffer",
 		"onsails/lspkind.nvim",
 	},
 	config = function()
@@ -54,6 +55,7 @@ return { -- Autocompletion
 			sources = {
 				{ name = "nvim_lsp", priority = 1000 },
 				{ name = "path", priority = 250 },
+				{ name = "buffer", priority = 750 },
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
