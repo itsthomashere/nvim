@@ -40,7 +40,6 @@ return {
 				},
 			},
 		},
-		{ "folke/lazydev.nvim", opts = {} },
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
