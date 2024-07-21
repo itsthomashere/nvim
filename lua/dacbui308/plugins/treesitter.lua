@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
+		-- "nvim-treesitter/nvim-treesitter-context",
 	},
 	build = ":TSUpdate",
 	config = function()
@@ -25,6 +25,6 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 		})
-		require("treesitter-context").setup()
+		-- require("treesitter-context").setup()
 	end,
 }

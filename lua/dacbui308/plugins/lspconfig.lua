@@ -11,7 +11,7 @@ return {
 					poll_rate = 10, -- How frequently to update and render notifications
 					filter = vim.log.levels.INFO, -- Minimum notifications level
 					history_size = 128, -- Number of removed messages to retain in history
-					override_vim_notify = true, -- Automatically override vim.notify() with Fidget
+					override_vim_notify = false, -- Automatically override vim.notify() with Fidget
 					view = {
 						stack_upwards = true, -- Display notification items from bottom to top
 						icon_separator = " ", -- Separator between group name and icon
@@ -27,14 +27,14 @@ return {
 					-- Options related to the notification window and buffer
 					window = {
 						normal_hl = "Comment", -- Base highlight group in the notification window
-						winblend = 0, -- Background color opacity in the notification window
+						winblend = 100, -- Background color opacity in the notification window
 						border = "none", -- Border around the notification window
 						zindex = 45, -- Stacking priority of the notification window
 						max_width = 0, -- Maximum width of the notification window
 						max_height = 30, -- Maximum height of the notification window
 						x_padding = 1, -- Padding from right edge of window boundary
 						y_padding = 0, -- Padding from bottom edge of window boundary
-						align = "top", -- How to align the notification window
+						align = "bottom", -- How to align the notification window
 						relative = "editor", -- What the notification window position is relative to
 					},
 				},
@@ -188,5 +188,7 @@ return {
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "rounded",
 		})
+		vim.lsp.handlers["textDocument/signatureHelp"] =
+			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 	end,
 }
