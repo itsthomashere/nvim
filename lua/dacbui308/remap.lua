@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set relativenumber")
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.cmd.smartindent = true
 
 -- Relative line numbers
 vim.opt.relativenumber = true
@@ -31,6 +31,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 })
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.diagnostic.config({ float = { border = "rounded" } })
 vim.keymap.set("v", "<C-y>", '"+y')

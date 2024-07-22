@@ -21,7 +21,6 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.pairs").setup()
-		require("mini.tabline").setup()
+		require("mini.surround").setup()
 	end,
 }

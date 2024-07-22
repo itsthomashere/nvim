@@ -154,9 +154,6 @@ return {
 		require("lspconfig").rust_analyzer.setup({
 			capabilities = capabilities,
 			cmd = {
-				"rustup",
-				"run",
-				"stable",
 				"rust-analyzer",
 			},
 			settings = {

@@ -1,9 +1,7 @@
 return {
-	"Mofiqul/dracula.nvim",
+	"rose-pine/neovim",
 	config = function()
-		require("dracula").setup({
-			transparent_bg = false,
-		})
-		Transarent("dracula")
+		require("rose-pine").setup()
+		vim.cmd.colorscheme("rose-pine-moon")
 	end,
 }
