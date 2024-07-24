@@ -22,6 +22,18 @@ return {
 		})
 		require("mini.indentscope").setup()
 		require("mini.statusline").setup()
+		require("mini.notify").setup({
+			window = {
+				-- Floating window config
+				config = {},
+
+				-- Maximum window width as share (between 0 and 1) of available columns
+				max_width_share = 0.2,
+
+				-- Value of 'winblend' option
+				winblend = 5,
+			},
+		})
 		require("mini.surround").setup()
 	end,
 }
