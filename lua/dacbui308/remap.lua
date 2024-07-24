@@ -48,7 +48,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 vim.keymap.set("n", "<A-x>", vim.cmd.bd)
-vim.keymap.set("n", "<leader>px", ":Ex<CR>")
+-- vim.keymap.set("n", "<leader>px", ":Ex<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
