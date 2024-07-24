@@ -35,7 +35,9 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-vim.diagnostic.config({ float = { border = "rounded" } })
+vim.diagnostic.config({
+	float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
+})
 vim.keymap.set("v", "<C-y>", '"+y')
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
