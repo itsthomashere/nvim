@@ -112,7 +112,7 @@ return {
 			capabilities = capabilities,
 			cmd = { "typescript-language-server", "--stdio" },
 			settings = {},
-			single_file_support = false,
+			single_file_support = true,
 		})
 
 		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
