@@ -58,8 +58,8 @@ return { -- Autocompletion
 				{ name = "buffer", priority = 750 },
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 			},
 		})
 	end,
