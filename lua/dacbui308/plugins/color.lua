@@ -1,7 +1,7 @@
 return {
-	"rose-pine/neovim",
+	"Mofiqul/dracula.nvim",
 	config = function()
-		require("rose-pine").setup()
-		vim.cmd.colorscheme("rose-pine-moon")
+		require("dracula").setup({})
+		vim.cmd.colorscheme("dracula")
 	end,
 }

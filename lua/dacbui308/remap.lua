@@ -61,13 +61,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-function Transarent(color)
+function Transparent(color)
 	if color == nil then
 		return
 	end
 	vim.cmd.colorscheme(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
-	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 	vim.api.nvim_set_hl(0, "NormalSB", { bg = "none", ctermbg = "none" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
