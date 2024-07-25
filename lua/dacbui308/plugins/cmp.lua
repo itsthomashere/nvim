@@ -12,19 +12,17 @@ return { -- Autocompletion
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
 			formatting = {
+				view = {
+					name = "custom",
+					selection_order = "near_cursor",
+				},
 				format = lspkind.cmp_format({
 					mode = "symbol_text",
 					maxwidth = 40,
 					ellipsis_char = "...",
-					menu = {
-						buffer = "[Buff]",
-						nvim_lsp = "[LSP]",
-						luasnip = "[LuaSnip]",
-						nvim_lua = "[Lua]",
-						latex_symbols = "[Latex]",
-					},
+					menu = {},
 				}),
-				fields = { "kind", "abbr", "menu" },
+				fields = { "kind", "abbr" },
 				expandable_indicator = true,
 			},
 			snippet = {
