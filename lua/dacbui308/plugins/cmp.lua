@@ -4,26 +4,70 @@ return { -- Autocompletion
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
-		"onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
-		local lspkind = require("lspkind")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+		local kind_icons = {
+			Text = "",
+			Method = "󰆧",
+			Function = "󰊕",
+			Constructor = "",
+			Field = "󰇽",
+			Variable = "󰂡",
+			Class = "󰠱",
+			Interface = "",
+			Module = "",
+			Property = "󰜢",
+			Unit = "",
+			Value = "󰎠",
+			Enum = "",
+			Keyword = "󰌋",
+			Snippet = "",
+			Color = "󰏘",
+			File = "󰈙",
+			Reference = "",
+			Folder = "󰉋",
+			EnumMember = "",
+			Constant = "󰏿",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰅲",
+		}
 		cmp.setup({
+			matching = {
+				disallow_fuzzy_matching = false,
+			},
 			formatting = {
 				view = {
 					name = "custom",
 					selection_order = "near_cursor",
 				},
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 40,
-					ellipsis_char = "...",
-					menu = {},
-				}),
-				fields = { "kind", "abbr" },
-				expandable_indicator = true,
+				format = function(entry, vim_item)
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
+					if vim_item.abbr == nil then
+						vim_item.abbr = ""
+					else
+						if vim.fn.strlen(vim_item.abbr) > 20 then
+							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0, 18) .. "...")
+						else
+							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0))
+						end
+					end
+					if vim_item.menu == nil then
+						vim_item.menu = ""
+					else
+						if vim.fn.strlen(vim_item.menu) > 20 then
+							vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0, 18) .. "...")
+						else
+							vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0))
+						end
+					end
+					return vim_item
+				end,
+				fields = { "kind", "abbr", "menu" },
+				expandable_indicator = false,
 			},
 			snippet = {
 				expand = function(args)
