@@ -45,25 +45,22 @@ return { -- Autocompletion
 					selection_order = "near_cursor",
 				},
 				format = function(entry, vim_item)
-					vim_item.kind = string.format("%s", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
-					if vim_item.abbr == nil then
-						vim_item.abbr = ""
-					else
+					vim_item.kind = string.format("%s|", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
+					if vim_item.abbr ~= nil then
 						if vim.fn.strlen(vim_item.abbr) > 20 then
 							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0, 18) .. "...")
 						else
 							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0))
 						end
 					end
-					if vim_item.menu == nil then
-						vim_item.menu = ""
-					else
+					if vim_item.menu ~= nil then
 						if vim.fn.strlen(vim_item.menu) > 20 then
 							vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0, 18) .. "...")
 						else
 							vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0))
 						end
 					end
+
 					return vim_item
 				end,
 				fields = { "kind", "abbr", "menu" },
