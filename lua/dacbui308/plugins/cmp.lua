@@ -4,6 +4,7 @@ return { -- Autocompletion
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -45,7 +46,7 @@ return { -- Autocompletion
 					selection_order = "near_cursor",
 				},
 				format = function(entry, vim_item)
-					vim_item.kind = string.format("%s|", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
+					vim_item.kind = string.format("%s ", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
 					if vim_item.abbr ~= nil then
 						if vim.fn.strlen(vim_item.abbr) > 20 then
 							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0, 18) .. "...")
@@ -94,6 +95,7 @@ return { -- Autocompletion
 			sources = {
 				{ name = "nvim_lsp", priority = 1000 },
 				{ name = "buffer", priority = 750 },
+				{ name = "path", priority = 250 },
 			},
 			window = {
 				-- completion = cmp.config.window.bordered(),
