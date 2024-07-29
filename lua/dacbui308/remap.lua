@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 
 -- Mouse
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 
 vim.opt.showmode = true
 vim.opt.breakindent = true
@@ -29,6 +29,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },
 })
+vim.opt.swapfile = false
+vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
@@ -37,6 +39,16 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.diagnostic.config({
 	float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
+	underline = true,
+	virtual_text = {
+		source = false,
+		hl_mode = "blend",
+		virt_text_pos = "eol",
+		format = function(diagnostic)
+			return string.format("%s", vim.diagnostic.severity[diagnostic.severity])
+		end,
+	},
+	update_in_insert = true,
 })
 vim.keymap.set("v", "<C-y>", '"+y')
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
@@ -45,9 +57,9 @@ vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
-vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
-vim.keymap.set("n", "<A-x>", vim.cmd.bd)
+-- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
+-- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
+-- vim.keymap.set("n", "<A-x>", vim.cmd.bd)
 vim.keymap.set("n", "<leader>px", ":Ex<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

@@ -21,7 +21,6 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.statusline").setup()
 		require("mini.notify").setup({
 			window = {
 				-- Floating window config
@@ -34,7 +33,5 @@ return {
 				winblend = 5,
 			},
 		})
-		require("mini.surround").setup()
-		require("mini.cursorword").setup()
 	end,
 }
