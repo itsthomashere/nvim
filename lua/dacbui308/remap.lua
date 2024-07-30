@@ -20,6 +20,8 @@ vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.colorcolumn = "90"
 
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 vim.opt.scrolloff = 10
 vim.g.netrw_banner = 0
 vim.opt.autoread = true
@@ -45,9 +47,14 @@ vim.diagnostic.config({
 		hl_mode = "blend",
 		virt_text_pos = "eol",
 		format = function(diagnostic)
-			return string.format("%s", vim.diagnostic.severity[diagnostic.severity])
+			return string.format(
+				"%s: %s",
+				vim.fn.strpart(vim.diagnostic.severity[diagnostic.severity], 0, 1),
+				vim.fn.strpart(diagnostic.message, 0, math.min(50, vim.fn.strlen(diagnostic.message))) .. "..."
+			)
 		end,
 	},
+	severity_sort = true,
 	update_in_insert = true,
 })
 vim.keymap.set("v", "<C-y>", '"+y')
@@ -60,7 +67,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 -- vim.keymap.set("n", "<A-x>", vim.cmd.bd)
-vim.keymap.set("n", "<leader>px", ":Ex<CR>")
+-- vim.keymap.set("n", "<leader>px", ":Ex<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })

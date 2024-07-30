@@ -109,6 +109,12 @@ return {
 		})
 
 		require("lspconfig").tsserver.setup({
+			init_options = {
+				preferences = {
+					importModuleSpecifierPreference = "relative",
+					importModuleSpecifierEnding = "minimal",
+				},
+			},
 			capabilities = capabilities,
 			cmd = { "typescript-language-server", "--stdio" },
 			settings = {},
