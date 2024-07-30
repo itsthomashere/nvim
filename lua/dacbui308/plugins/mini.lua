@@ -21,7 +21,6 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.statusline").setup()
 		require("mini.notify").setup({
 			window = {
 				-- Floating window config
