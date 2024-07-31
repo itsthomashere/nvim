@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.nvim",
-	version = "*",
+	version = false,
 	config = function()
 		require("mini.comment").setup({
 
@@ -21,6 +21,9 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
+		require("mini.statusline").setup()
+		require("mini.icons").setup()
+		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.notify").setup({
 			window = {
 				-- Floating window config

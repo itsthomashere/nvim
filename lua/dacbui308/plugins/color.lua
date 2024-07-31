@@ -1,11 +1,12 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
+	"navarasu/onedark.nvim",
+	name = "onedark",
 	config = function()
-		require("rose-pine").setup({
-			disable_background = true,
+		require("onedark").setup({
+			style = "deep",
+			transparent = true,
 		})
 		-- vim.cmd.colorscheme("rose-pine-moon")
-		Transparent("rose-pine-moon")
+		Transparent("onedark")
 	end,
 }
