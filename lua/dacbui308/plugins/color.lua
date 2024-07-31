@@ -1,8 +1,11 @@
 return {
-	"Mofiqul/dracula.nvim",
-	name = "dracula",
+	"rose-pine/neovim",
+	name = "rose-pine",
 	config = function()
-		require("dracula").setup({})
-		Transparent("dracula")
+		require("rose-pine").setup({
+			disable_background = true,
+		})
+		-- vim.cmd.colorscheme("rose-pine-moon")
+		Transparent("rose-pine-moon")
 	end,
 }
