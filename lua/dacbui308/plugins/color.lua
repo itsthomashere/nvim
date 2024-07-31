@@ -1,12 +1,22 @@
 return {
-	"navarasu/onedark.nvim",
-	name = "onedark",
-	config = function()
-		require("onedark").setup({
-			style = "deep",
-			transparent = true,
-		})
-		-- vim.cmd.colorscheme("rose-pine-moon")
-		Transparent("onedark")
-	end,
+	-- {
+	-- 	"scottmckendry/cyberdream.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("cyberdream").setup()
+	-- 		Transparent("cyberdream")
+	-- 	end,
+	-- },
+	{
+		"eldritch-theme/eldritch.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("eldritch").setup({
+				transparent = true,
+			})
+			vim.cmd.colorscheme("eldritch")
+		end,
+	},
 }
