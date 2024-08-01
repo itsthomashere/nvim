@@ -45,6 +45,7 @@ vim.diagnostic.config({
 	-- float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
 	underline = true,
 	virtual_text = {
+		prefix = "●",
 		source = false,
 		hl_mode = "blend",
 		virt_text_pos = "eol",
@@ -64,6 +65,11 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
