@@ -14,9 +14,9 @@ return {
 		priority = 1000,
 		config = function()
 			require("eldritch").setup({
-				transparent = true,
+				transparent = false,
 			})
-			vim.cmd.colorscheme("eldritch")
+			Transparent("eldritch")
 		end,
 	},
 }

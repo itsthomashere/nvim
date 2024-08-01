@@ -24,6 +24,7 @@ vim.opt.colorcolumn = "90"
 -- vim.g.loaded_netrw = 0
 vim.opt.scrolloff = 10
 vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
 vim.opt.autoread = true
 vim.o.termguicolors = true
 vim.o.guicursor = ""
@@ -40,7 +41,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.diagnostic.config({
-	float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
+	-- float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
 	underline = true,
 	virtual_text = {
 		source = false,
