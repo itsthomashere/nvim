@@ -41,9 +41,25 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 vim.diagnostic.config({
-	-- float = { border = "rounded", focusable = false, style = "minimal", source = true, header = "", prefix = "" },
+	float = {
+		border = "none",
+		focusable = false,
+		style = "minimal",
+		source = true,
+		header = "",
+		prefix = "",
+		severity_sort = true,
+	},
 	underline = true,
+	signs = {
+		priority = 100,
+	},
 	virtual_text = {
 		prefix = "●",
 		source = false,
@@ -65,11 +81,6 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
