@@ -8,7 +8,7 @@ return {
 			tmux = { enabled = true },
 			alacritty = {
 				enabled = true,
-				font = "22.5",
+				font = "12",
 			},
 		},
 	},

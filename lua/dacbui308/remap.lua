@@ -18,7 +18,7 @@ vim.opt.showmode = true
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.updatetime = 250
-vim.opt.colorcolumn = "90"
+-- vim.opt.colorcolumn = "90"
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
