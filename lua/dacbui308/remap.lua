@@ -20,8 +20,8 @@ vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.colorcolumn = "90"
 
--- vim.g.loaded_netrwPlugin = 0
--- vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 vim.cmd("set signcolumn=auto:2")
 vim.opt.scrolloff = 10
 vim.g.netrw_banner = 0
@@ -37,6 +37,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -86,7 +88,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 -- vim.keymap.set("n", "<A-x>", vim.cmd.bd)
-vim.keymap.set("n", "<leader>px", ":Ex<CR>")
+-- vim.keymap.set("n", "<leader>px", ":Ex<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })

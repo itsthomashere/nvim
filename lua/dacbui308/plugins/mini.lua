@@ -21,7 +21,7 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.statusline").setup()
+		require("mini.statusline").setup({ use_icons = true })
 		require("mini.icons").setup()
 		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.bufremove").setup()
