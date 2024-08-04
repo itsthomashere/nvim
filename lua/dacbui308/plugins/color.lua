@@ -19,11 +19,50 @@ return {
 		-- 	Transparent("eldritch")
 		-- end,
 	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({})
+	-- 		Transparent("rose-pine-moon")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			transparent = true,
+	-- 			compile = true,
+	-- 			terminalColors = true,
+	-- 			background = "",
+	-- 			theme = "wave",
+	-- 		})
+	-- 		Transparent("kanagawa-wave")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup()
+	-- 		Transparent("catppuccin")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("gruvbox").setup({})
+	-- 		Transparent("gruvbox")
+	-- 	end,
+	-- },
 	{
-		"ellisonleao/gruvbox.nvim",
+		"EdenEast/nightfox.nvim",
+		priority = 1000,
 		config = function()
-			require("gruvbox").setup()
-			Transparent("gruvbox")
+			require("nightfox").setup()
+			Transparent("duskfox")
 		end,
 	},
 }
