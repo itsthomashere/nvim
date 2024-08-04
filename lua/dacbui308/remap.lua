@@ -18,14 +18,17 @@ vim.opt.showmode = true
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.updatetime = 250
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 -- vim.opt.colorcolumn = "90"
 
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
 vim.cmd("set signcolumn=auto:2")
 vim.opt.scrolloff = 10
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
+vim.g.netrw_browse_split = 4
 vim.opt.autoread = true
 vim.o.termguicolors = true
 vim.o.guicursor = ""
@@ -71,7 +74,7 @@ vim.diagnostic.config({
 			return string.format(
 				"%s: %s",
 				vim.fn.strpart(vim.diagnostic.severity[diagnostic.severity], 0, 1),
-				vim.fn.strpart(diagnostic.message, 0, math.min(50, vim.fn.strlen(diagnostic.message))) .. "..."
+				vim.fn.strpart(diagnostic.message, 0, math.min(75, vim.fn.strlen(diagnostic.message))) .. "..."
 			)
 		end,
 	},
@@ -87,8 +90,8 @@ vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
--- vim.keymap.set("n", "<A-x>", vim.cmd.bd)
--- vim.keymap.set("n", "<leader>px", ":Ex<CR>")
+vim.keymap.set("n", "<A-x>", vim.cmd.bd)
+vim.keymap.set("n", "<leader>px", ":Lex! 25<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
