@@ -22,14 +22,14 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 -- vim.opt.colorcolumn = "90"
 
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
 vim.cmd("set signcolumn=auto:2")
 vim.opt.scrolloff = 10
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_browse_split = 0
-vim.g.netrw_winsize = 25
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_liststyle = 3
+-- vim.g.netrw_browse_split = 0
+-- vim.g.netrw_winsize = 25
 vim.opt.autoread = true
 vim.o.termguicolors = true
 vim.o.guicursor = ""
@@ -92,7 +92,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
 -- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 vim.keymap.set("n", "<A-x>", vim.cmd.bd)
-vim.keymap.set("n", "<leader>px", ":Lex! 25<CR>")
+-- vim.keymap.set("n", "<leader>px", ":Lex! 25<CR>")
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
