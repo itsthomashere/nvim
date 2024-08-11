@@ -62,7 +62,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("nightfox").setup()
-			Transparent("duskfox")
+			Transparent("nightfox")
 		end,
 	},
 }

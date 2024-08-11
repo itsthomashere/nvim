@@ -99,6 +99,6 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>px", "<cmd>Neotree toggle filesystem reveal right<CR>")
+		vim.keymap.set("n", "<C-p>", "<cmd>Neotree toggle filesystem reveal right<CR>")
 	end,
 }

@@ -86,7 +86,6 @@ vim.keymap.set("v", "<C-y>", '"+y')
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>lf", vim.diagnostic.setloclist)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
@@ -94,10 +93,27 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<A-x>", vim.cmd.bd)
 -- vim.keymap.set("n", "<leader>px", ":Lex! 25<CR>")
 
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the bottom window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the top window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+
+vim.keymap.set("n", "<leader>qfl", function()
+	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+	local action = qf_winid > 0 and "cclose" or "copen"
+	vim.cmd(action)
+end, { desc = "Open quickfix list" })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "Next item in the quickfix list" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "Previous item in the quickfix list" })
+
+vim.keymap.set("n", "<leader>att", function()
+	local win = vim.api.nvim_get_current_win()
+	local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+	local action = qf_winid > 0 and "lclose" or "lopen"
+	vim.cmd(action)
+end)
+vim.keymap.set("n", "<C-h>", "<cmd>lprev<CR>zz", { desc = "Next item in the quickfix list" })
+vim.keymap.set("n", "<C-l>", "<cmd>lnext<CR>zz", { desc = "Previous item in the quickfix list" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
