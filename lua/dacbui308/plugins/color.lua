@@ -8,17 +8,17 @@ return {
 	-- 		Transparent("cyberdream")
 	-- 	end,
 	-- },
-	{
-		-- "eldritch-theme/eldritch.nvim",
-		-- lazy = false,
-		-- priority = 1000,
-		-- config = function()
-		-- 	require("eldritch").setup({
-		-- 		transparent = false,
-		-- 	})
-		-- 	Transparent("eldritch")
-		-- end,
-	},
+	-- {
+	-- 	"eldritch-theme/eldritch.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("eldritch").setup({
+	-- 			transparent = false,
+	-- 		})
+	-- 		Transparent("eldritch")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"rose-pine/neovim",
 	-- 	name = "rose-pine",
@@ -62,7 +62,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("nightfox").setup()
-			Transparent("nightfox")
+			Transparent("nordfox")
 		end,
 	},
 }

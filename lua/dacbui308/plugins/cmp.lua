@@ -79,7 +79,6 @@ return { -- Autocompletion
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete({}),
 				["<C-l>"] = cmp.mapping(function()
 					if vim.snippet.active({ direction = 1 }) then
