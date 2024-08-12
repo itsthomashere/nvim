@@ -60,16 +60,16 @@ return {
 	-- 		Transparent("gruvbox")
 	-- 	end,
 	-- },
-	{
-		"EdenEast/nightfox.nvim",
-		priority = 1000,
-		config = function()
-			require("nightfox").setup({
-				transparent = true,
-			})
-			Transparent("nightfox")
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nightfox").setup({
+	-- 			transparent = true,
+	-- 		})
+	-- 		Transparent("nightfox")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
 	-- 	priority = 1000,
@@ -78,4 +78,12 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
+	{
+		"olimorris/onedarkpro.nvim",
+		priority = 1000, -- Ensure it loads first
+		config = function()
+			require("onedarkpro").setup({})
+			Transparent("onedark")
+		end,
+	},
 }
