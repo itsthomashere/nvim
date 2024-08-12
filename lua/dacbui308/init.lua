@@ -1,4 +1,5 @@
 require("dacbui308.remap")
+require("dacbui308.quickfixlist")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

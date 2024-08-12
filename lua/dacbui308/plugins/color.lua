@@ -23,8 +23,12 @@ return {
 	-- 	"rose-pine/neovim",
 	-- 	name = "rose-pine",
 	-- 	config = function()
-	-- 		require("rose-pine").setup({})
-	-- 		Transparent("rose-pine-moon")
+	-- 		require("rose-pine").setup({
+	-- 			styles = {
+	-- 				italic = false,
+	-- 			},
+	-- 		})
+	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
 	-- {
@@ -50,10 +54,9 @@ return {
 	-- 	end,
 	-- },
 	-- {
-	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	"morhetz/gruvbox",
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		require("gruvbox").setup({})
 	-- 		Transparent("gruvbox")
 	-- 	end,
 	-- },
@@ -61,8 +64,18 @@ return {
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
-			require("nightfox").setup()
-			Transparent("nordfox")
+			require("nightfox").setup({
+				transparent = true,
+			})
+			Transparent("nightfox")
 		end,
 	},
+	-- {
+	-- 	"Mofiqul/dracula.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("dracula").setup()
+	-- 		Transparent("dracula")
+	-- 	end,
+	-- },
 }
