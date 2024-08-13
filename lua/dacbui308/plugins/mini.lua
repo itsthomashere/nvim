@@ -21,6 +21,8 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
+		require("mini.starter").setup()
+		require("mini.statusline").setup()
 		require("mini.icons").setup()
 		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.bufremove").setup()
