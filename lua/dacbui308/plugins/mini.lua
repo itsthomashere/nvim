@@ -23,7 +23,8 @@ return {
 		require("mini.indentscope").setup()
 		require("mini.starter").setup({
 			header = "  Thomas  \n      ",
-			query_updaters = "",
+			items = {},
+			query_updates = {},
 		})
 		require("mini.statusline").setup()
 		require("mini.icons").setup()
