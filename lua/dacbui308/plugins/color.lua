@@ -90,7 +90,11 @@ return {
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			require("tokyonight").setup()
+			require("tokyonight").setup({
+				plugins = {
+					markdown = true,
+				},
+			})
 			Transparent("tokyonight")
 		end,
 	},

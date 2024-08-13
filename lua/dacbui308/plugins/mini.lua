@@ -21,7 +21,10 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.starter").setup()
+		require("mini.starter").setup({
+			header = "  Thomas  \n      ",
+			query_updaters = "",
+		})
 		require("mini.statusline").setup()
 		require("mini.icons").setup()
 		require("mini.icons").mock_nvim_web_devicons()
