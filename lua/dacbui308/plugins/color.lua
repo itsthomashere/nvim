@@ -78,12 +78,20 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"olimorris/onedarkpro.nvim",
+	-- 	priority = 1000, -- Ensure it loads first
+	-- 	config = function()
+	-- 		require("onedarkpro").setup({})
+	-- 		Transparent("onedark")
+	-- 	end,
+	-- },
 	{
-		"olimorris/onedarkpro.nvim",
-		priority = 1000, -- Ensure it loads first
+		"folke/tokyonight.nvim",
+		priority = 1000,
 		config = function()
-			require("onedarkpro").setup({})
-			Transparent("onedark")
+			require("tokyonight").setup()
+			Transparent("tokyonight")
 		end,
 	},
 }

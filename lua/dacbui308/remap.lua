@@ -24,9 +24,9 @@ vim.opt.splitbelow = true
 
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.loaded_netrw = 1
-vim.cmd("set signcolumn=auto:1")
+vim.cmd("set signcolumn=auto:2")
 vim.opt.scrolloff = 10
--- vim.g.netrw_banner = 0
+vim.g.netrw_banner = 0
 -- vim.g.netrw_liststyle = 3
 -- vim.g.netrw_browse_split = 0
 -- vim.g.netrw_winsize = 25
@@ -113,7 +113,7 @@ function Transparent(color)
 	vim.cmd.colorscheme(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none", ctermfg = "none" })
