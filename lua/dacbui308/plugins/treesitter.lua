@@ -35,6 +35,9 @@ return {
 			indent = { enable = true },
 			additional_vim_regex_highlighting = false,
 		})
-		require("treesitter-context").setup()
+		require("treesitter-context").setup({
+			max_lines = 2,
+			separator = nil,
+		})
 	end,
 }
