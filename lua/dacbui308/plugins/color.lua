@@ -19,18 +19,18 @@ return {
 	-- 		Transparent("eldritch")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				italic = false,
-	-- 			},
-	-- 		})
-	-- 		Transparent("rose-pine")
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					italic = true,
+				},
+			})
+			Transparent("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
@@ -86,16 +86,16 @@ return {
 	-- 		Transparent("onedark")
 	-- 	end,
 	-- },
-	{
-		"folke/tokyonight.nvim",
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				plugins = {
-					markdown = true,
-				},
-			})
-			Transparent("tokyonight")
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			plugins = {
+	-- 				markdown = true,
+	-- 			},
+	-- 		})
+	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
 }

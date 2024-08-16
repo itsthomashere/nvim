@@ -1,8 +1,5 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
-	},
 	build = ":TSUpdate",
 	config = function()
 		local configs = require("nvim-treesitter.configs")
@@ -34,10 +31,6 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			additional_vim_regex_highlighting = false,
-		})
-		require("treesitter-context").setup({
-			max_lines = 2,
-			separator = nil,
 		})
 	end,
 }

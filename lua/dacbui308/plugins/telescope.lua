@@ -17,7 +17,7 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 				fzf = {
-					fuzzy = false,
+					fuzzy = true,
 				},
 			},
 		})
