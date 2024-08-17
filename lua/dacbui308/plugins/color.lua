@@ -27,8 +27,14 @@ return {
 				styles = {
 					italic = true,
 				},
+				highlight_groups = {
+					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
+					StatusLineNC = { fg = "subtle", bg = "surface" },
+				},
 			})
-			Transparent("rose-pine-moon")
+			vim.opt.laststatus = 2 -- Or 3 for global statusline
+			vim.opt.statusline = " %f %m %= %l:%c ♥ "
+			Transparent("rose-pine")
 		end,
 	},
 	-- {

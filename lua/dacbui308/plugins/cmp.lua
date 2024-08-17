@@ -58,7 +58,7 @@ return { -- Autocompletion
 					selection_order = "top_down",
 				},
 				format = function(entry, vim_item)
-					vim_item.kind = string.format("%s ", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
+					vim_item.kind = string.format("[%s]", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
 					if vim_item.abbr ~= nil then
 						if vim.fn.strlen(vim_item.abbr) > 25 then
 							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0, 23) .. "...")
@@ -73,7 +73,6 @@ return { -- Autocompletion
 							vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0))
 						end
 					end
-
 					return vim_item
 				end,
 				fields = { "kind", "abbr", "menu" },

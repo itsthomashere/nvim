@@ -26,7 +26,6 @@ return {
 			items = {},
 			query_updates = {},
 		})
-		require("mini.statusline").setup()
 		require("mini.icons").setup()
 		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.bufremove").setup()
