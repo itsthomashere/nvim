@@ -28,7 +28,7 @@ return {
 					italic = true,
 				},
 			})
-			Transparent("rose-pine")
+			Transparent("rose-pine-moon")
 		end,
 	},
 	-- {

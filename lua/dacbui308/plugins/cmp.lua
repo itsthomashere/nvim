@@ -39,11 +39,23 @@ return { -- Autocompletion
 		cmp.setup({
 			matching = {
 				disallow_fuzzy_matching = false,
+				disallow_symbol_nonprefix_matching = true,
+				disallow_prefix_unmatching = false,
+				disallow_partial_fuzzy_matching = false,
+				disallow_fullfuzzy_matching = true,
+				disallow_partial_matching = false,
+			},
+			view = {
+				entries = {
+					name = "custom",
+					selection_order = "near_cursor",
+					follow_cursor = true,
+				},
 			},
 			formatting = {
 				view = {
 					name = "custom",
-					selection_order = "near_cursor",
+					selection_order = "top_down",
 				},
 				format = function(entry, vim_item)
 					vim_item.kind = string.format("%s ", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
