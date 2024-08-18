@@ -48,7 +48,7 @@ return { -- Autocompletion
 			view = {
 				entries = {
 					name = "custom",
-					selection_order = "near_cursor",
+					selection_order = "top_down",
 					follow_cursor = true,
 				},
 			},
