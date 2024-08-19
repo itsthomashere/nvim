@@ -35,8 +35,7 @@ return {
 					-- Conditional = { italic = true },
 				},
 			})
-			vim.api.nvim_set_hl(0, "Keyword", { bg = "none" })
-			Transparent("rose-pine")
+			Transparent("rose-pine-moon")
 		end,
 	},
 	-- {
