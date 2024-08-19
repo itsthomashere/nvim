@@ -19,29 +19,29 @@ return {
 	-- 		vim.cmd.colorscheme("eldritch")
 	-- 	end,
 	-- },
-	{
-		"rose-pine/neovim",
-		priority = 1000,
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				styles = {
-					italic = true,
-					transparency = false,
-				},
-				highlight_groups = {
-					Keyword = { italic = true },
-					Function = { italic = true },
-					-- Conditional = { italic = true },
-					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
-					StatusLineNC = { fg = "subtle", bg = "surface" },
-				},
-			})
-			vim.opt.laststatus = 2 -- Or 3 for global statusline
-			vim.opt.statusline = " %f %m %= %l:%c ♥ "
-			Transparent("rose-pine")
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	priority = 1000,
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			styles = {
+	-- 				italic = true,
+	-- 				transparency = false,
+	-- 			},
+	-- 			highlight_groups = {
+	-- 				Keyword = { italic = true },
+	-- 				Function = { italic = true },
+	-- 				-- Conditional = { italic = true },
+	-- 				StatusLine = { fg = "iris", bg = "iris", blend = 10 },
+	-- 				StatusLineNC = { fg = "subtle", bg = "surface" },
+	-- 			},
+	-- 		})
+	-- 		vim.opt.laststatus = 2 -- Or 3 for global statusline
+	-- 		vim.opt.statusline = " %f %m %= %l:%c ♥ "
+	-- 		Transparent("rose-pine-moon")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
@@ -64,13 +64,29 @@ return {
 	-- 		Transparent("catppuccin")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"morhetz/gruvbox",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		Transparent("gruvbox")
-	-- 	end,
-	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({
+				contrast = "hard",
+				transparent_mode = true,
+				italic = {
+					strings = true,
+					emphasis = true,
+					comments = true,
+					operators = true,
+					folds = true,
+				},
+				overrides = {
+					Keyword = { italic = true },
+					Function = { italic = true },
+					Conditional = { italic = true },
+				},
+			})
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	},
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	priority = 1000,
@@ -86,6 +102,10 @@ return {
 	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		require("dracula").setup()
+	-- 		vim.opt.laststatus = 2 -- Or 3 for global statusline
+	-- 		vim.opt.statusline = " %f %m %= %l:%c ♥ "
+	-- 		vim.api.nvim_set_hl(0, "Keyword", { italic = true })
+	-- 		vim.api.nvim_set_hl(0, "Function", { italic = true })
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
