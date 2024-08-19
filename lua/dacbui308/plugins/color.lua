@@ -33,8 +33,6 @@ return {
 					Keyword = { italic = true },
 					Function = { italic = true },
 					-- Conditional = { italic = true },
-				},
-				highlight_groups = {
 					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
 					StatusLineNC = { fg = "subtle", bg = "surface" },
 				},
