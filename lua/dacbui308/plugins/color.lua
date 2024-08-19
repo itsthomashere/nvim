@@ -79,9 +79,12 @@ return {
 					folds = true,
 				},
 				overrides = {
-					Keyword = { italic = true },
-					Function = { italic = true },
-					Conditional = { italic = true },
+					Keyword = { italic = true, fg = "#fb4934" },
+					Function = { bold = true, fg = "#b8bb26", italic = true },
+					Conditional = { italic = true, fg = "#fb4934" },
+					["@variable"] = { fg = "#ebdbb2", italic = true },
+					["@variable.parameter"] = { fg = "#83a598", italic = true },
+					["@property"] = { fg = "#83a598", italic = true },
 				},
 			})
 			vim.cmd.colorscheme("gruvbox")
