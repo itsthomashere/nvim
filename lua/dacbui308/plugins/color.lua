@@ -14,18 +14,25 @@ return {
 	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		require("eldritch").setup({
-	-- 			transparent = false,
+	-- 			transparent = true,
 	-- 		})
-	-- 		Transparent("eldritch")
+	-- 		vim.cmd.colorscheme("eldritch")
 	-- 	end,
 	-- },
 	{
 		"rose-pine/neovim",
+		priority = 1000,
 		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
 				styles = {
 					italic = true,
+					transparency = false,
+				},
+				highlight_groups = {
+					Keyword = { italic = true },
+					Function = { italic = true },
+					-- Conditional = { italic = true },
 				},
 				highlight_groups = {
 					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
@@ -41,13 +48,13 @@ return {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
 	-- 		require("kanagawa").setup({
-	-- 			transparent = true,
+	-- 			transparent = false,
 	-- 			compile = true,
 	-- 			terminalColors = true,
 	-- 			background = "",
-	-- 			theme = "wave",
+	-- 			theme = "dragon",
 	-- 		})
-	-- 		Transparent("kanagawa-wave")
+	-- 		vim.cmd.colorscheme("kanagawa")
 	-- 	end,
 	-- },
 	-- {
@@ -97,8 +104,13 @@ return {
 	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		require("tokyonight").setup({
+	-- 			style = "night",
 	-- 			plugins = {
 	-- 				markdown = true,
+	-- 			},
+	-- 			styles = {
+	-- 				functions = { italic = true },
+	-- 				variables = { italic = true },
 	-- 			},
 	-- 		})
 	-- 		Transparent("tokyonight")
