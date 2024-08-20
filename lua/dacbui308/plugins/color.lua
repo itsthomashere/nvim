@@ -70,7 +70,7 @@ return {
 		config = function()
 			require("gruvbox").setup({
 				contrast = "hard",
-				transparent_mode = true,
+				transparent_mode = false,
 				italic = {
 					strings = true,
 					emphasis = true,
@@ -87,7 +87,7 @@ return {
 					["@property"] = { fg = "#83a598", italic = true },
 				},
 			})
-			vim.cmd.colorscheme("gruvbox")
+			Transparent("gruvbox")
 		end,
 	},
 	-- {
