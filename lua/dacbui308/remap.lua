@@ -2,10 +2,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.cmd.smartindent = true
+
+vim.opt.laststatus = 2 -- Or 3 for global statusline
+vim.opt.statusline = " %f %m %= %l:%c ♥ "
 
 -- Relative line numbers
 vim.opt.relativenumber = true
@@ -41,8 +44,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
--- vim.opt.list = true
--- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -88,15 +91,8 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
--- vim.keymap.set("n", "<A-l>", vim.cmd.bnext)
--- vim.keymap.set("n", "<A-h>", vim.cmd.bprevious)
 vim.keymap.set("n", "<A-x>", "<cmd>%bd|edit#|bd#<CR>")
 vim.keymap.set("n", "<C-p>", "<cmd>Ex<CR>")
-
--- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the bottom window" })
--- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the top window" })
--- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

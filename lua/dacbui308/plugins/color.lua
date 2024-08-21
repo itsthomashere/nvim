@@ -87,7 +87,9 @@ return {
 					["@property"] = { fg = "#83a598", italic = true },
 				},
 			})
-			Transparent("gruvbox")
+			vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+			vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
+			vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 	-- {

@@ -3,7 +3,6 @@ return { -- Autocompletion
 	event = { "InsertEnter" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 	},
 	config = function()
@@ -104,7 +103,6 @@ return { -- Autocompletion
 			}),
 			sources = {
 				{ name = "nvim_lsp", priority = 1000 },
-				{ name = "buffer", priority = 750 },
 				{ name = "path", priority = 250 },
 			},
 			window = {
