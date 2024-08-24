@@ -82,7 +82,6 @@ vim.diagnostic.config({
 			)
 		end,
 	},
-	severity_sort = true,
 	update_in_insert = true,
 })
 vim.keymap.set("v", "<C-y>", '"+y')
@@ -109,7 +108,7 @@ function Transparent(color)
 	vim.cmd.colorscheme(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
-	vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
 	vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
 	vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

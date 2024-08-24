@@ -14,34 +14,46 @@ return {
 	-- 	priority = 1000,
 	-- 	config = function()
 	-- 		require("eldritch").setup({
-	-- 			transparent = true,
+	-- 			transparent = false,
 	-- 		})
-	-- 		vim.cmd.colorscheme("eldritch")
+	-- 		Transparent("eldritch")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	priority = 1000,
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				italic = true,
-	-- 				transparency = false,
-	-- 			},
-	-- 			highlight_groups = {
-	-- 				Keyword = { italic = true },
-	-- 				Function = { italic = true },
-	-- 				-- Conditional = { italic = true },
-	-- 				StatusLine = { fg = "iris", bg = "iris", blend = 10 },
-	-- 				StatusLineNC = { fg = "subtle", bg = "surface" },
-	-- 			},
-	-- 		})
-	-- 		vim.opt.laststatus = 2 -- Or 3 for global statusline
-	-- 		vim.opt.statusline = " %f %m %= %l:%c ♥ "
-	-- 		Transparent("rose-pine-moon")
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		priority = 1000,
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					italic = true,
+					transparency = false,
+				},
+				highlight_groups = {
+					Keyword = { italic = true },
+					Function = { italic = true },
+					-- Conditional = { italic = true },
+					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
+					StatusLineNC = { fg = "subtle", bg = "surface" },
+					TelescopeBorder = { fg = "overlay", bg = "overlay" },
+					TelescopeNormal = { fg = "subtle", bg = "overlay" },
+					TelescopeSelection = { fg = "text", bg = "highlight_med" },
+					TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+					TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+
+					TelescopeTitle = { fg = "base", bg = "love" },
+					TelescopePromptTitle = { fg = "base", bg = "pine" },
+					TelescopePreviewTitle = { fg = "base", bg = "iris" },
+
+					TelescopePromptNormal = { fg = "text", bg = "surface" },
+					TelescopePromptBorder = { fg = "surface", bg = "surface" },
+				},
+			})
+			vim.opt.laststatus = 2 -- Or 3 for global statusline
+			vim.opt.statusline = " %f %m %= %l:%c ♥ "
+			Transparent("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
@@ -49,10 +61,10 @@ return {
 	-- 			transparent = false,
 	-- 			compile = true,
 	-- 			terminalColors = true,
-	-- 			background = "",
-	-- 			theme = "dragon",
 	-- 		})
-	-- 		vim.cmd.colorscheme("kanagawa")
+	-- 		vim.cmd.colorscheme("kanagawa-dragon")
+	-- 		vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+	-- 		vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
 	-- 	end,
 	-- },
 	-- {
@@ -64,34 +76,34 @@ return {
 	-- 		Transparent("catppuccin")
 	-- 	end,
 	-- },
-	{
-		"ellisonleao/gruvbox.nvim",
-		priority = 1000,
-		config = function()
-			require("gruvbox").setup({
-				contrast = "hard",
-				transparent_mode = false,
-				italic = {
-					strings = true,
-					emphasis = true,
-					comments = true,
-					operators = true,
-					folds = true,
-				},
-				overrides = {
-					Keyword = { italic = true, fg = "#fb4934" },
-					Function = { bold = true, fg = "#b8bb26", italic = true },
-					Conditional = { italic = true, fg = "#fb4934" },
-					["@variable"] = { fg = "#ebdbb2", italic = true },
-					["@variable.parameter"] = { fg = "#83a598", italic = true },
-					["@property"] = { fg = "#83a598", italic = true },
-				},
-			})
-			vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
-			vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
-			vim.cmd.colorscheme("gruvbox")
-		end,
-	},
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			contrast = "soft",
+	-- 			transparent_mode = false,
+	-- 			italic = {
+	-- 				strings = true,
+	-- 				emphasis = true,
+	-- 				comments = true,
+	-- 				operators = true,
+	-- 				folds = true,
+	-- 			},
+	-- 			overrides = {
+	-- 				Keyword = { italic = true, fg = "#fb4934" },
+	-- 				Function = { bold = true, fg = "#b8bb26", italic = true },
+	-- 				Conditional = { italic = true, fg = "#fb4934" },
+	-- 				["@variable"] = { fg = "#ebdbb2", italic = true },
+	-- 				["@variable.parameter"] = { fg = "#83a598", italic = true },
+	-- 				["@property"] = { fg = "#83a598", italic = true },
+	-- 			},
+	-- 		})
+	-- 		vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+	-- 		vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
+	-- 		Transparent("gruvbox")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	priority = 1000,
@@ -106,11 +118,16 @@ return {
 	-- 	"Mofiqul/dracula.nvim",
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		require("dracula").setup()
-	-- 		vim.opt.laststatus = 2 -- Or 3 for global statusline
-	-- 		vim.opt.statusline = " %f %m %= %l:%c ♥ "
-	-- 		vim.api.nvim_set_hl(0, "Keyword", { italic = true })
-	-- 		vim.api.nvim_set_hl(0, "Function", { italic = true })
+	-- 		require("dracula").setup({
+	-- 			overrides = {
+	-- 				Keyword = { italic = true },
+	-- 				Function = { bold = true, italic = true },
+	-- 				Conditional = { italic = true },
+	-- 				["@variable"] = { italic = true },
+	-- 				["@variable.parameter"] = { italic = true },
+	-- 				["@property"] = { italic = true },
+	-- 			},
+	-- 		})
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
@@ -137,6 +154,14 @@ return {
 	-- 			},
 	-- 		})
 	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"RRethy/base16-nvim",
+	-- 	config = function()
+	-- 		Transparent("base16-humanoid-dark")
+	-- 		vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+	-- 		vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
 	-- 	end,
 	-- },
 }

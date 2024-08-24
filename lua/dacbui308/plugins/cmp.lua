@@ -36,6 +36,9 @@ return { -- Autocompletion
 			TypeParameter = "󰅲",
 		}
 		cmp.setup({
+			performance = {
+				max_view_entries = 10,
+			},
 			matching = {
 				disallow_fuzzy_matching = false,
 				disallow_symbol_nonprefix_matching = true,
@@ -108,6 +111,9 @@ return { -- Autocompletion
 			window = {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
+			},
+			experimental = {
+				ghost_text = true,
 			},
 		})
 	end,
