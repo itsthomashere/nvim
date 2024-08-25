@@ -132,6 +132,13 @@ return {
 	-- 	end,
 	-- },
 	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	config = function()
+	-- 		require("vscode").setup({})
+	-- 		vim.cmd.colorscheme("vscode")
+	-- 	end,
+	-- },
+	-- {
 	-- 	"olimorris/onedarkpro.nvim",
 	-- 	priority = 1000, -- Ensure it loads first
 	-- 	config = function()
@@ -159,7 +166,7 @@ return {
 	{
 		"RRethy/base16-nvim",
 		config = function()
-			Transparent("base16-humanoid-dark")
+			vim.cmd.colorscheme("base16-equilibrium-dark")
 		end,
 	},
 }
