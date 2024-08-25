@@ -44,8 +44,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -114,4 +114,12 @@ function Transparent(color)
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none", ctermfg = "none" })
+	vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
+	vim.api.nvim_set_hl(0, "Keyword", { italic = true })
+	vim.api.nvim_set_hl(0, "Function", { italic = true })
+	vim.api.nvim_set_hl(0, "Conditional", { italic = true })
+	vim.api.nvim_set_hl(0, "@variable.parameter", { italic = true })
+	vim.api.nvim_set_hl(0, "@variable", { italic = true })
+	vim.api.nvim_set_hl(0, "@property", { italic = true })
 end
