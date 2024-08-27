@@ -109,8 +109,8 @@ return { -- Autocompletion
 				{ name = "path", priority = 250 },
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 			},
 			experimental = {
 				ghost_text = true,
