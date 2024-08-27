@@ -19,41 +19,36 @@ return {
 	-- 		Transparent("eldritch")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	priority = 1000,
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				italic = true,
-	-- 				transparency = false,
-	-- 			},
-	-- 			highlight_groups = {
-	-- 				Keyword = { italic = true },
-	-- 				Function = { italic = true },
-	-- 				-- Conditional = { italic = true },
-	-- 				StatusLine = { fg = "iris", bg = "iris", blend = 10 },
-	-- 				StatusLineNC = { fg = "subtle", bg = "surface" },
-	-- 				TelescopeBorder = { fg = "overlay", bg = "overlay" },
-	-- 				TelescopeNormal = { fg = "subtle", bg = "overlay" },
-	-- 				TelescopeSelection = { fg = "text", bg = "highlight_med" },
-	-- 				TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
-	-- 				TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-	--
-	-- 				TelescopeTitle = { fg = "base", bg = "love" },
-	-- 				TelescopePromptTitle = { fg = "base", bg = "pine" },
-	-- 				TelescopePreviewTitle = { fg = "base", bg = "iris" },
-	--
-	-- 				TelescopePromptNormal = { fg = "text", bg = "surface" },
-	-- 				TelescopePromptBorder = { fg = "surface", bg = "surface" },
-	-- 			},
-	-- 		})
-	-- 		vim.opt.laststatus = 2 -- Or 3 for global statusline
-	-- 		vim.opt.statusline = " %f %m %= %l:%c ♥ "
-	-- 		Transparent("rose-pine")
-	-- 	end,
-	-- },
+	{
+		"rose-pine/neovim",
+		priority = 1000,
+		name = "rose-pine",
+		config = function()
+			require("rose-pine").setup({
+				styles = {
+					italic = false,
+					transparency = false,
+				},
+				highlight_groups = {
+					StatusLine = { fg = "iris", bg = "iris", blend = 10 },
+					StatusLineNC = { fg = "subtle", bg = "surface" },
+					TelescopeBorder = { fg = "overlay", bg = "overlay" },
+					TelescopeNormal = { fg = "subtle", bg = "overlay" },
+					TelescopeSelection = { fg = "text", bg = "highlight_med" },
+					TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
+					TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
+
+					TelescopeTitle = { fg = "base", bg = "love" },
+					TelescopePromptTitle = { fg = "base", bg = "pine" },
+					TelescopePreviewTitle = { fg = "base", bg = "iris" },
+
+					TelescopePromptNormal = { fg = "text", bg = "surface" },
+					TelescopePromptBorder = { fg = "surface", bg = "surface" },
+				},
+			})
+			Transparent("rose-pine")
+		end,
+	},
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	config = function()
@@ -163,10 +158,10 @@ return {
 	-- 		Transparent("tokyonight")
 	-- 	end,
 	-- },
-	{
-		"RRethy/base16-nvim",
-		config = function()
-			vim.cmd.colorscheme("base16-equilibrium-dark")
-		end,
-	},
+	-- {
+	-- 	"RRethy/base16-nvim",
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("base16-equilibrium-dark")
+	-- 	end,
+	-- },
 }
