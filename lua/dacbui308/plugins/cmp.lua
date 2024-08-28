@@ -8,33 +8,6 @@ return { -- Autocompletion
 	config = function()
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
-		local kind_icons = {
-			Text = "",
-			Method = "󰆧",
-			Function = "󰊕",
-			Constructor = "",
-			Field = "󰇽",
-			Variable = "󰂡",
-			Class = "󰠱",
-			Interface = "",
-			Module = "",
-			Property = "󰜢",
-			Unit = "",
-			Value = "󰎠",
-			Enum = "",
-			Keyword = "󰌋",
-			Snippet = "",
-			Color = "󰏘",
-			File = "󰈙",
-			Reference = "",
-			Folder = "󰉋",
-			EnumMember = "",
-			Constant = "󰏿",
-			Struct = "",
-			Event = "",
-			Operator = "󰆕",
-			TypeParameter = "󰅲",
-		}
 		cmp.setup({
 			performance = {
 				max_view_entries = 10,
@@ -59,8 +32,7 @@ return { -- Autocompletion
 					name = "custom",
 					selection_order = "top_down",
 				},
-				format = function(entry, vim_item)
-					vim_item.kind = string.format("[%s]", kind_icons[vim_item.kind]) -- This concatenates the icons with the name of the item kind
+				format = function(_, vim_item)
 					if vim_item.abbr ~= nil then
 						if vim.fn.strlen(vim_item.abbr) > 25 then
 							vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0, 23) .. "...")
@@ -77,7 +49,7 @@ return { -- Autocompletion
 					end
 					return vim_item
 				end,
-				fields = { "kind", "abbr", "menu" },
+				fields = { "abbr", "menu", "kind" },
 				expandable_indicator = false,
 			},
 			snippet = {
@@ -113,7 +85,7 @@ return { -- Autocompletion
 				-- documentation = cmp.config.window.bordered(),
 			},
 			experimental = {
-				ghost_text = true,
+				ghost_text = false,
 			},
 		})
 	end,
