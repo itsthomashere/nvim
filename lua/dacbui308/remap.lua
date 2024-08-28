@@ -78,7 +78,7 @@ vim.diagnostic.config({
 			return string.format(
 				"%s: %s",
 				vim.fn.strpart(vim.diagnostic.severity[diagnostic.severity], 0, 1),
-				vim.fn.strpart(diagnostic.message, 0, math.min(75, vim.fn.strlen(diagnostic.message))) .. "..."
+				diagnostic.message
 			)
 		end,
 	},
