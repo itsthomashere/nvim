@@ -29,21 +29,54 @@ return {
 	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			plugins = {
+	-- 				markdown = true,
+	-- 			},
+	-- 			styles = {
+	-- 				functions = { italic = true },
+	-- 				variables = { italic = true },
+	-- 			},
+	-- 		})
+	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
+	-- pick your favourite plugin manager
+	-- {
+	-- 	"okaihe/okai",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("okai").setup({})
+	-- 		Transparent("okai")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"rockyzhang24/arctic.nvim",
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- 	name = "arctic",
+	-- 	branch = "main",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme arctic")
+	-- 	end,
+	-- },
 	{
-		"folke/tokyonight.nvim",
+		"uloco/bluloco.nvim",
+		lazy = false,
 		priority = 1000,
+		dependencies = { "rktjmp/lush.nvim" },
 		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				plugins = {
-					markdown = true,
-				},
-				styles = {
-					functions = { italic = true },
-					variables = { italic = true },
-				},
+			require("bluloco").setup({
+				italics = true,
+				guicursor = false,
 			})
-			Transparent("tokyonight")
+			vim.cmd.colorscheme("bluloco-dark")
 		end,
 	},
 }
