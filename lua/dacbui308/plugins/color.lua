@@ -46,37 +46,25 @@ return {
 	-- 		Transparent("tokyonight")
 	-- 	end,
 	-- },
-	-- pick your favourite plugin manager
-	-- {
-	-- 	"okaihe/okai",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("okai").setup({})
-	-- 		Transparent("okai")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"rockyzhang24/arctic.nvim",
-	-- 	dependencies = { "rktjmp/lush.nvim" },
-	-- 	name = "arctic",
-	-- 	branch = "main",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme arctic")
-	-- 	end,
-	-- },
 	{
-		"uloco/bluloco.nvim",
-		lazy = false,
-		priority = 1000,
+		"metalelf0/jellybeans-nvim",
 		dependencies = { "rktjmp/lush.nvim" },
+		priority = 1000,
 		config = function()
-			require("bluloco").setup({
-				italics = true,
-				guicursor = false,
-			})
-			vim.cmd.colorscheme("bluloco-dark")
+			vim.cmd.colorscheme("jellybeans-nvim")
 		end,
 	},
+	-- {
+	-- 	"uloco/bluloco.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- 	config = function()
+	-- 		require("bluloco").setup({
+	-- 			italics = true,
+	-- 			guicursor = false,
+	-- 		})
+	-- 		vim.cmd.colorscheme("bluloco-dark")
+	-- 	end,
+	-- },
 }
