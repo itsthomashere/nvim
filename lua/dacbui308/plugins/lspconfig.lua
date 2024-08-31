@@ -111,7 +111,18 @@ return {
 			},
 		})
 
-		require("lspconfig").gopls.setup({})
+		require("lspconfig").gopls.setup({
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					analyses = {
+						unusedparams = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
+				},
+			},
+		})
 
 		require("lspconfig").tsserver.setup({
 			init_options = {
