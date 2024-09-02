@@ -4,9 +4,21 @@ return { -- Autocompletion
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
+		{
+			"L3MON4D3/LuaSnip",
+			build = (function()
+				if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+					return
+				end
+				return "make install_jsregexp"
+			end)(),
+		},
+		"saadparwaiz1/cmp_luasnip",
 	},
 	config = function()
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
+		luasnip.setup({})
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
 			performance = {
@@ -64,7 +76,7 @@ return { -- Autocompletion
 			},
 			snippet = {
 				expand = function(args)
-					vim.snippet.expand(args.body)
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 			completion = { completeopt = "menu,menuone,noinsert, select" },
@@ -83,13 +95,13 @@ return { -- Autocompletion
 				end, { "i", "s" }),
 
 				["<C-l>"] = cmp.mapping(function()
-					if vim.snippet.active({ direction = 1 }) then
-						vim.snippet.jump(1)
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
 					end
 				end, { "i", "s" }),
 				["<C-h>"] = cmp.mapping(function()
-					if vim.snippet.active({ direction = -1 }) then
-						vim.snippet.jump(-1)
+					if luasnip.locally_jumpable(-1) then
+						luasnip.jump(-1)
 					end
 				end, { "i", "s" }),
 			}),

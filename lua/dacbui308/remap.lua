@@ -71,16 +71,9 @@ vim.diagnostic.config({
 	},
 	virtual_text = {
 		prefix = "●",
-		source = false,
+		source = true,
 		hl_mode = "replace",
 		virt_text_pos = "eol",
-		format = function(diagnostic)
-			return string.format(
-				"%s: %s",
-				vim.fn.strpart(vim.diagnostic.severity[diagnostic.severity], 0, 1),
-				diagnostic.message
-			)
-		end,
 	},
 	update_in_insert = true,
 })
