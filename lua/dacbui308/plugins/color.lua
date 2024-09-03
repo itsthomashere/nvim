@@ -46,14 +46,14 @@ return {
 	-- 		Transparent("tokyonight")
 	-- 	end,
 	-- },
-	{
-		"metalelf0/jellybeans-nvim",
-		dependencies = { "rktjmp/lush.nvim" },
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("jellybeans-nvim")
-		end,
-	},
+	-- {
+	-- 	"metalelf0/jellybeans-nvim",
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("jellybeans-nvim")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"uloco/bluloco.nvim",
 	-- 	lazy = false,
@@ -67,4 +67,22 @@ return {
 	-- 		vim.cmd.colorscheme("bluloco-dark")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup()
+	-- 		vim.cmd.colorscheme("kanagawa-dragon")
+	-- 	end,
+	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfox").setup()
+			vim.cmd.colorscheme("nightfox")
+		end,
+	},
 }
