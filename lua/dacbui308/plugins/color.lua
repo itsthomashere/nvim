@@ -82,7 +82,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("nightfox").setup()
-			vim.cmd.colorscheme("nightfox")
+			vim.cmd.colorscheme("carbonfox")
 		end,
 	},
 }
