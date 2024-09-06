@@ -21,9 +21,6 @@ return { -- Autocompletion
 		luasnip.setup({})
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
-			performance = {
-				max_view_entries = 15,
-			},
 			matching = {
 				disallow_fuzzy_matching = false,
 				disallow_symbol_nonprefix_matching = true,
@@ -39,7 +36,7 @@ return { -- Autocompletion
 					follow_cursor = true,
 				},
 				docs = {
-					auto_open = false,
+					auto_open = true,
 				},
 			},
 			formatting = {
