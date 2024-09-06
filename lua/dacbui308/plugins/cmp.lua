@@ -22,7 +22,7 @@ return { -- Autocompletion
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
 			performance = {
-				max_view_entries = 10,
+				max_view_entries = 15,
 			},
 			matching = {
 				disallow_fuzzy_matching = false,
@@ -39,7 +39,7 @@ return { -- Autocompletion
 					follow_cursor = true,
 				},
 				docs = {
-					auto_open = false,
+					auto_open = true,
 				},
 			},
 			formatting = {
