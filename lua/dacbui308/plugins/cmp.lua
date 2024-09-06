@@ -39,7 +39,7 @@ return { -- Autocompletion
 					follow_cursor = true,
 				},
 				docs = {
-					auto_open = true,
+					auto_open = false,
 				},
 			},
 			formatting = {

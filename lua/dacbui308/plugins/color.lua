@@ -38,28 +38,28 @@ return {
 	-- 		vim.cmd.colorscheme("jellybeans-nvim")
 	-- 	end,
 	-- },
-	{
-		"uloco/bluloco.nvim",
-		lazy = false,
-		priority = 1000,
-		dependencies = { "rktjmp/lush.nvim" },
-		config = function()
-			require("bluloco").setup({
-				italics = true,
-				guicursor = false,
-			})
-			vim.cmd.colorscheme("bluloco-dark")
-		end,
-	},
 	-- {
-	-- 	"rebelot/kanagawa.nvim",
+	-- 	"uloco/bluloco.nvim",
 	-- 	lazy = false,
 	-- 	priority = 1000,
+	-- 	dependencies = { "rktjmp/lush.nvim" },
 	-- 	config = function()
-	-- 		require("kanagawa").setup()
-	-- 		vim.cmd.colorscheme("kanagawa-dragon")
+	-- 		require("bluloco").setup({
+	-- 			italics = true,
+	-- 			guicursor = false,
+	-- 		})
+	-- 		vim.cmd.colorscheme("bluloco-dark")
 	-- 	end,
 	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup()
+			vim.cmd.colorscheme("kanagawa-wave")
+		end,
+	},
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	lazy = false,
