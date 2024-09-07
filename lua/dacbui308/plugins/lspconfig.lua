@@ -107,6 +107,14 @@ return {
 					procMacro = {
 						enable = true,
 					},
+					completion = {
+						postfix = {
+							enable = false,
+						},
+						snippets = {
+							custom = "None",
+						},
+					},
 				},
 			},
 		})
