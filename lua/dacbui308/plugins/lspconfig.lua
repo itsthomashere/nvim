@@ -111,9 +111,6 @@ return {
 						postfix = {
 							enable = false,
 						},
-						snippets = {
-							custom = "None",
-						},
 					},
 				},
 			},
