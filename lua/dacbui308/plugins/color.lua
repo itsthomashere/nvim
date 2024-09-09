@@ -6,27 +6,11 @@ return {
 	-- 	config = function()
 	-- 		require("rose-pine").setup({
 	-- 			styles = {
-	-- 				italic = false,
+	-- 				italic = true,
 	-- 				transparency = false,
 	-- 			},
-	-- 			highlight_groups = {
-	-- 				StatusLine = { fg = "iris", bg = "iris", blend = 10 },
-	-- 				StatusLineNC = { fg = "subtle", bg = "surface" },
-	-- 				TelescopeBorder = { fg = "overlay", bg = "overlay" },
-	-- 				TelescopeNormal = { fg = "subtle", bg = "overlay" },
-	-- 				TelescopeSelection = { fg = "text", bg = "highlight_med" },
-	-- 				TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
-	-- 				TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-	--
-	-- 				TelescopeTitle = { fg = "base", bg = "love" },
-	-- 				TelescopePromptTitle = { fg = "base", bg = "pine" },
-	-- 				TelescopePreviewTitle = { fg = "base", bg = "iris" },
-	--
-	-- 				TelescopePromptNormal = { fg = "text", bg = "surface" },
-	-- 				TelescopePromptBorder = { fg = "surface", bg = "surface" },
-	-- 			},
 	-- 		})
-	-- 		Transparent("rose-pine")
+	-- 		vim.cmd.colorscheme("rose-pine")
 	-- 	end,
 	-- },
 	-- {
@@ -67,22 +51,22 @@ return {
 	-- 		vim.cmd.colorscheme("bluloco-dark")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("kanagawa").setup()
-	-- 		vim.cmd.colorscheme("kanagawa-dragon")
-	-- 	end,
-	-- },
 	{
-		"EdenEast/nightfox.nvim",
+		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("nightfox").setup()
-			vim.cmd.colorscheme("carbonfox")
+			require("kanagawa").setup()
+			vim.cmd.colorscheme("kanagawa-wave")
 		end,
 	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nightfox").setup()
+	-- 		vim.cmd.colorscheme("carbonfox")
+	-- 	end,
+	-- },
 }
