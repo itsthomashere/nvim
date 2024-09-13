@@ -10,7 +10,7 @@ return {
 	-- 				transparency = false,
 	-- 			},
 	-- 		})
-	-- 		vim.cmd.colorscheme("rose-pine")
+	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
 	-- {
@@ -22,12 +22,8 @@ return {
 	-- 			plugins = {
 	-- 				markdown = true,
 	-- 			},
-	-- 			styles = {
-	-- 				functions = { italic = true },
-	-- 				variables = { italic = true },
-	-- 			},
 	-- 		})
-	-- 		Transparent("tokyonight")
+	-- 		vim.cmd.colorscheme("tokyonight")
 	-- 	end,
 	-- },
 	-- {
@@ -51,15 +47,15 @@ return {
 	-- 		vim.cmd.colorscheme("bluloco-dark")
 	-- 	end,
 	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("kanagawa").setup()
-			vim.cmd.colorscheme("kanagawa-wave")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup()
+	-- 		vim.cmd.colorscheme("kanagawa-wave")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	lazy = false,
@@ -69,4 +65,14 @@ return {
 	-- 		vim.cmd.colorscheme("carbonfox")
 	-- 	end,
 	-- },
+	--
+	{
+		"Mofiqul/dracula.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("dracula").setup()
+			Transparent("dracula")
+		end,
+	},
 }
