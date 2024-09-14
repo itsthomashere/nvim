@@ -13,19 +13,19 @@ return {
 	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("tokyonight").setup({
-	-- 			style = "night",
-	-- 			plugins = {
-	-- 				markdown = true,
-	-- 			},
-	-- 		})
-	-- 		vim.cmd.colorscheme("tokyonight")
-	-- 	end,
-	-- },
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+		config = function()
+			require("tokyonight").setup({
+				style = "night",
+				plugins = {
+					markdown = true,
+				},
+			})
+			Transparent("tokyonight")
+		end,
+	},
 	-- {
 	-- 	"metalelf0/jellybeans-nvim",
 	-- 	dependencies = { "rktjmp/lush.nvim" },
@@ -34,19 +34,19 @@ return {
 	-- 		vim.cmd.colorscheme("jellybeans-nvim")
 	-- 	end,
 	-- },
-	{
-		"uloco/bluloco.nvim",
-		lazy = false,
-		priority = 1000,
-		dependencies = { "rktjmp/lush.nvim" },
-		config = function()
-			require("bluloco").setup({
-				italics = true,
-				guicursor = false,
-			})
-			Transparent("bluloco-dark")
-		end,
-	},
+	-- {
+	-- 	"uloco/bluloco.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	dependencies = { "rktjmp/lush.nvim" },
+	-- 	config = function()
+	-- 		require("bluloco").setup({
+	-- 			italics = true,
+	-- 			guicursor = false,
+	-- 		})
+	-- 		Transparent("bluloco-dark")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	lazy = false,

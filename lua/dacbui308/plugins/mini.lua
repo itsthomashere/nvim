@@ -27,8 +27,6 @@ return {
 			items = {},
 			query_updates = {},
 		})
-		require("mini.icons").setup()
-		require("mini.icons").mock_nvim_web_devicons()
 		require("mini.bufremove").setup()
 		require("mini.notify").setup({
 			window = {
