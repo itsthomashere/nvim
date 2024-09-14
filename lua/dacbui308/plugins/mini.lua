@@ -22,7 +22,6 @@ return {
 			},
 		})
 		require("mini.indentscope").setup()
-		require("mini.statusline").setup()
 		require("mini.starter").setup({
 			header = "  Thomas  \n      ",
 			items = {},

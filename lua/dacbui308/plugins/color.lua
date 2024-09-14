@@ -34,19 +34,19 @@ return {
 	-- 		vim.cmd.colorscheme("jellybeans-nvim")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"uloco/bluloco.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	dependencies = { "rktjmp/lush.nvim" },
-	-- 	config = function()
-	-- 		require("bluloco").setup({
-	-- 			italics = true,
-	-- 			guicursor = false,
-	-- 		})
-	-- 		vim.cmd.colorscheme("bluloco-dark")
-	-- 	end,
-	-- },
+	{
+		"uloco/bluloco.nvim",
+		lazy = false,
+		priority = 1000,
+		dependencies = { "rktjmp/lush.nvim" },
+		config = function()
+			require("bluloco").setup({
+				italics = true,
+				guicursor = false,
+			})
+			Transparent("bluloco-dark")
+		end,
+	},
 	-- {
 	-- 	"rebelot/kanagawa.nvim",
 	-- 	lazy = false,
@@ -66,13 +66,13 @@ return {
 	-- 	end,
 	-- },
 	--
-	{
-		"Mofiqul/dracula.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("dracula").setup()
-			Transparent("dracula")
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/dracula.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("dracula").setup()
+	-- 		Transparent("dracula")
+	-- 	end,
+	-- },
 }

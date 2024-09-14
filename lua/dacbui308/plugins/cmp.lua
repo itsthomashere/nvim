@@ -105,6 +105,7 @@ return { -- Autocompletion
 			sources = {
 				{ name = "nvim_lsp", priority = 1000 },
 				{ name = "path", priority = 250 },
+				{ name = "crates" },
 			},
 			window = {
 				-- completion = cmp.config.window.bordered(),
