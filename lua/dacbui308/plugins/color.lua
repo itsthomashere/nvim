@@ -13,25 +13,25 @@ return {
 	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
-	{
-		"folke/tokyonight.nvim",
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				plugins = {
-					markdown = true,
-				},
-			})
-			Transparent("tokyonight")
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			plugins = {
+	-- 				markdown = true,
+	-- 			},
+	-- 		})
+	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"metalelf0/jellybeans-nvim",
 	-- 	dependencies = { "rktjmp/lush.nvim" },
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		vim.cmd.colorscheme("jellybeans-nvim")
+	-- 		Transparent("jellybeans-nvim")
 	-- 	end,
 	-- },
 	-- {
@@ -75,4 +75,15 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
 }
