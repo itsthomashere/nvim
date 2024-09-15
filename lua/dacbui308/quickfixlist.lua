@@ -4,18 +4,6 @@ vim.keymap.set("n", "<leader>qfl", function()
 	vim.cmd(action)
 end, { desc = "Open quickfix list" })
 
-vim.keymap.set("n", "<C-j>", function()
-	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-	local action = qf_winid > 0 and "cnext" or "wincmd j"
-	vim.cmd(action)
-end, { desc = "Next item in the quickfix list" })
-
-vim.keymap.set("n", "<C-k>", function()
-	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-	local action = qf_winid > 0 and "cprev" or "wincmd k"
-	vim.cmd(action)
-end, { desc = "Previous item in the quickfix list" })
-
 vim.keymap.set("n", "<leader>att", function()
 	local win = vim.api.nvim_get_current_win()
 	local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
@@ -23,16 +11,35 @@ vim.keymap.set("n", "<leader>att", function()
 	vim.cmd(action)
 end)
 
-vim.keymap.set("n", "<C-h>", function()
+vim.keymap.set("n", "<C-j>", function()
 	local win = vim.api.nvim_get_current_win()
-	local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
-	local action = qf_winid > 0 and "lprev" or "wincmd h"
+	local loclist_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+	local action
+	if qf_winid > 0 and loclist_winid == 0 then
+		action = "cnext"
+	elseif loclist_winid > 0 and qf_winid == 0 then
+		action = "lnext"
+	else
+		action = "move .+1<CR>=="
+	end
 	vim.cmd(action)
-end, { desc = "Previous item in the loclist" })
+end)
 
-vim.keymap.set("n", "<C-l>", function()
+vim.keymap.set("n", "<C-k>", function()
 	local win = vim.api.nvim_get_current_win()
-	local qf_winid = vim.fn.getloclist(win, { winid = 0 }).winid
-	local action = qf_winid > 0 and "lnext" or "wincmd l"
+	local loclist_winid = vim.fn.getloclist(win, { winid = 0 }).winid
+	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+	local action
+	if qf_winid > 0 and loclist_winid == 0 then
+		action = "cprev"
+	elseif loclist_winid > 0 and qf_winid == 0 then
+		action = "lprev"
+	else
+		action = "move .-2<CR>=="
+	end
 	vim.cmd(action)
-end, { desc = "next item in the loclist" })
+end)
+
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
