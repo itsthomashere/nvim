@@ -57,7 +57,7 @@ for type, icon in pairs(signs) do
 end
 vim.diagnostic.config({
 	float = {
-		border = "none",
+		border = "rounded",
 		focusable = false,
 		style = "minimal",
 		source = true,
