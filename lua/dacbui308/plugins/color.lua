@@ -86,4 +86,13 @@ return {
 	-- 		Transparent("catppuccin-mocha")
 	-- 	end,
 	-- },
+	-- {
+	-- 	"eldritch-theme/eldritch.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("eldritch").setup({})
+	-- 		Transparent("eldritch")
+	-- 	end,
+	-- },
 }

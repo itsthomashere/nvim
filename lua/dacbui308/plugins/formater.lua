@@ -17,6 +17,7 @@ return {
 				css = { "prettier" },
 				json = { "prettier" },
 				typescript = { "prettier" },
+				kotlin = { "ktfmt" },
 			},
 		})
 

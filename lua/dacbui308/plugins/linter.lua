@@ -11,6 +11,7 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
+			-- kotlin = { "ktlint" },
 		}
 
 		local lint_auto_group = vim.api.nvim_create_augroup("lint", { clear = true })
