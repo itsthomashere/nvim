@@ -13,19 +13,19 @@ return {
 	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
-	{
-		"folke/tokyonight.nvim",
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				plugins = {
-					markdown = true,
-				},
-			})
-			Transparent("tokyonight")
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			plugins = {
+	-- 				markdown = true,
+	-- 			},
+	-- 		})
+	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"metalelf0/jellybeans-nvim",
 	-- 	dependencies = { "rktjmp/lush.nvim" },
@@ -41,8 +41,8 @@ return {
 	-- 	dependencies = { "rktjmp/lush.nvim" },
 	-- 	config = function()
 	-- 		require("bluloco").setup({
-	-- 			italics = true,
 	-- 			guicursor = false,
+	-- 			italics = true,
 	-- 		})
 	-- 		Transparent("bluloco-dark")
 	-- 	end,
@@ -95,4 +95,13 @@ return {
 	-- 		Transparent("eldritch")
 	-- 	end,
 	-- },
+	{
+		"Shatur/neovim-ayu",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("ayu").setup({})
+			vim.cmd.colorscheme("ayu")
+		end,
+	},
 }

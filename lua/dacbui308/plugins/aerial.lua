@@ -8,5 +8,6 @@ return {
 
 	config = function()
 		require("aerial").setup()
+		vim.keymap.set("n", "<leader>fn", "<cmd>AerialToggle!<CR>")
 	end,
 }
