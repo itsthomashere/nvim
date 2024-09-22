@@ -100,8 +100,12 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("ayu").setup({})
-			vim.cmd.colorscheme("ayu")
+			require("ayu").setup({
+				overrides = {
+					NonText = { fg = "#575e71" },
+				},
+			})
+			Transparent("ayu")
 		end,
 	},
 }

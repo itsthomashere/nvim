@@ -85,6 +85,10 @@ vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float)
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<A-x>", "<cmd>%bd|edit#|bd#<CR>")
 vim.keymap.set("n", "<C-p>", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<C-Left>", "<C-W>5>")
+vim.keymap.set("n", "<C-Right>", "<C-W>5<")
+vim.keymap.set("n", "<C-Up>", "<C-W>+")
+vim.keymap.set("n", "<C-Down>", "<C-w>-")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
