@@ -86,8 +86,10 @@ return {
 				end,
 			},
 		})
+
+		local lspconfig = require("lspconfig")
 		-- For important lsp setup
-		require("lspconfig").rust_analyzer.setup({
+		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 			cmd = {
 				"rust-analyzer",
@@ -98,6 +100,7 @@ return {
 					check = {
 						command = "clippy",
 						features = "all",
+						allTargets = false,
 					},
 					cargo = {
 						buildScripts = {
@@ -111,12 +114,15 @@ return {
 						postfix = {
 							enable = false,
 						},
+						snippets = {
+							custom = "None",
+						},
 					},
 				},
 			},
 		})
 
-		require("lspconfig").gopls.setup({
+		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			settings = {
 				gopls = {
@@ -129,7 +135,7 @@ return {
 			},
 		})
 
-		require("lspconfig").ts_ls.setup({
+		lspconfig.ts_ls.setup({
 			init_options = {
 				preferences = {
 					includeInlayParameterNameHints = "all",
@@ -143,10 +149,16 @@ return {
 					importModuleSpecifierEnding = "minimal",
 				},
 			},
+			root_dir = require("lspconfig").util.root_pattern("package.json"),
 			capabilities = capabilities,
 			cmd = { "typescript-language-server", "--stdio" },
 			settings = {},
 			single_file_support = false,
+		})
+
+		lspconfig.denols.setup({
+			capabilities = capabilities,
+			root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
 		})
 
 		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
