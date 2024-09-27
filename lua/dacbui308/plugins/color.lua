@@ -13,19 +13,19 @@ return {
 	-- 		Transparent("rose-pine")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("tokyonight").setup({
-	-- 			style = "night",
-	-- 			plugins = {
-	-- 				markdown = true,
-	-- 			},
-	-- 		})
-	-- 		Transparent("tokyonight")
-	-- 	end,
-	-- },
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+		config = function()
+			require("tokyonight").setup({
+				style = "night",
+				plugins = {
+					markdown = true,
+				},
+			})
+			Transparent("tokyonight")
+		end,
+	},
 	-- {
 	-- 	"metalelf0/jellybeans-nvim",
 	-- 	dependencies = { "rktjmp/lush.nvim" },
@@ -95,17 +95,17 @@ return {
 	-- 		Transparent("eldritch")
 	-- 	end,
 	-- },
-	{
-		"Shatur/neovim-ayu",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("ayu").setup({
-				overrides = {
-					NonText = { fg = "#575e71" },
-				},
-			})
-			Transparent("ayu")
-		end,
-	},
+	-- {
+	-- 	"Shatur/neovim-ayu",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("ayu").setup({
+	-- 			overrides = {
+	-- 				NonText = { fg = "#575e71" },
+	-- 			},
+	-- 		})
+	-- 		Transparent("ayu")
+	-- 	end,
+	-- },
 }

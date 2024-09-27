@@ -33,6 +33,7 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), client.buf)
 					end, "[T]oggle Inlay [H]ints")
 				end
+				client.server_capabilities.semanticTokensProvider = nil
 			end,
 		})
 
