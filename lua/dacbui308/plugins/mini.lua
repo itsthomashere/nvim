@@ -28,6 +28,8 @@ return {
 			query_updates = {},
 		})
 		require("mini.bufremove").setup()
+		require("mini.icons").mock_nvim_web_devicons()
+		require("mini.statusline").setup()
 		require("mini.notify").setup({
 			window = {
 				-- Floating window config

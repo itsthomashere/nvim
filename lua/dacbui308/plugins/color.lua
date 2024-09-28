@@ -1,31 +1,31 @@
 return {
-	-- {
-	-- 	"rose-pine/neovim",
-	-- 	priority = 1000,
-	-- 	name = "rose-pine",
-	-- 	config = function()
-	-- 		require("rose-pine").setup({
-	-- 			styles = {
-	-- 				italic = true,
-	-- 				transparency = false,
-	-- 			},
-	-- 		})
-	-- 		Transparent("rose-pine")
-	-- 	end,
-	-- },
 	{
-		"folke/tokyonight.nvim",
+		"rose-pine/neovim",
 		priority = 1000,
+		name = "rose-pine",
 		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				plugins = {
-					markdown = true,
+			require("rose-pine").setup({
+				styles = {
+					italic = true,
+					transparency = false,
 				},
 			})
-			Transparent("tokyonight")
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			plugins = {
+	-- 				markdown = true,
+	-- 			},
+	-- 		})
+	-- 		Transparent("tokyonight")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"metalelf0/jellybeans-nvim",
 	-- 	dependencies = { "rktjmp/lush.nvim" },
