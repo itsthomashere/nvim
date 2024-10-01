@@ -33,7 +33,7 @@ return {
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), client.buf)
 					end, "[T]oggle Inlay [H]ints")
 				end
-				client.server_capabilities.semanticTokensProvider = nil
+				-- client.server_capabilities.semanticTokensProvider = nil
 			end,
 		})
 
@@ -107,6 +107,7 @@ return {
 						buildScripts = {
 							enable = true,
 						},
+						features = "all",
 					},
 					procMacro = {
 						enable = true,
@@ -162,10 +163,15 @@ return {
 			root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
 		})
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
+		lspconfig.html.setup({
+			capabilities = capabilities,
+			filetypes = { "html", "htmldjango", "templ" },
 		})
-		vim.lsp.handlers["textDocument/signatureHelp"] =
-			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		-- 	border = "rounded",
+		-- })
+		-- vim.lsp.handlers["textDocument/signatureHelp"] =
+		-- 	vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 	end,
 }

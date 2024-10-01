@@ -21,6 +21,9 @@ return { -- Autocompletion
 		luasnip.setup({})
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		cmp.setup({
+			performance = {
+				max_view_entries = 15,
+			},
 			matching = {
 				disallow_fuzzy_matching = false,
 				disallow_symbol_nonprefix_matching = true,
@@ -108,8 +111,8 @@ return { -- Autocompletion
 				{ name = "crates" },
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				-- completion = cmp.config.window.bordered(),
+				-- documentation = cmp.config.window.bordered(),
 			},
 			experimental = {
 				ghost_text = false,

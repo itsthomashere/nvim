@@ -1,18 +1,18 @@
 return {
-	{
-		"rose-pine/neovim",
-		priority = 1000,
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				styles = {
-					italic = true,
-					transparency = false,
-				},
-			})
-			vim.cmd.colorscheme("rose-pine")
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	priority = 1000,
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			styles = {
+	-- 				italic = true,
+	-- 				transparency = false,
+	-- 			},
+	-- 		})
+	-- 		vim.cmd.colorscheme("rose-pine")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	priority = 1000,
@@ -75,17 +75,17 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("catppuccin").setup({
-	-- 			transparent_background = false,
-	-- 		})
-	-- 		Transparent("catppuccin-mocha")
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = false,
+			})
+			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,

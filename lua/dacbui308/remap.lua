@@ -4,7 +4,7 @@ vim.g.have_nerd_font = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 vim.cmd.smartindent = true
 
 vim.opt.laststatus = 2 -- Or 3 for global statusline
@@ -57,7 +57,7 @@ for type, icon in pairs(signs) do
 end
 vim.diagnostic.config({
 	float = {
-		border = "rounded",
+		border = "none",
 		focusable = false,
 		style = "minimal",
 		source = true,
