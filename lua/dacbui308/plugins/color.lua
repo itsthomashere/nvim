@@ -10,7 +10,7 @@ return {
 	-- 				transparency = false,
 	-- 			},
 	-- 		})
-	-- 		vim.cmd.colorscheme("rose-pine")
+	-- 		Transparent("rose-pine-moon")
 	-- 	end,
 	-- },
 	-- {
@@ -75,17 +75,17 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = false,
-			})
-			vim.cmd.colorscheme("catppuccin-mocha")
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			transparent_background = false,
+	-- 		})
+	-- 		Transparent("catppuccin-mocha")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,
@@ -108,4 +108,16 @@ return {
 	-- 		Transparent("ayu")
 	-- 	end,
 	-- },
+	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+				style = "deep",
+				transparent = true,
+			})
+			vim.cmd.colorscheme("onedark")
+		end,
+	},
 }

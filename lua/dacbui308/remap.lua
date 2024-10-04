@@ -4,11 +4,11 @@ vim.g.have_nerd_font = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 vim.cmd.smartindent = true
 
 vim.opt.laststatus = 2 -- Or 3 for global statusline
-vim.opt.statusline = " %f %m %= %l:%c ♥ "
+vim.opt.statusline = " %f %m %= %l:%c Chan "
 
 -- Relative line numbers
 vim.opt.relativenumber = true
