@@ -56,15 +56,15 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("nightfox").setup()
-	-- 		Transparent("duskfox")
-	-- 	end,
-	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfox").setup()
+			vim.cmd.colorscheme("nightfox")
+		end,
+	},
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
@@ -108,16 +108,16 @@ return {
 	-- 		Transparent("ayu")
 	-- 	end,
 	-- },
-	{
-		"navarasu/onedark.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("onedark").setup({
-				style = "deep",
-				transparent = true,
-			})
-			vim.cmd.colorscheme("onedark")
-		end,
-	},
+	-- {
+	-- 	"navarasu/onedark.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("onedark").setup({
+	-- 			style = "deep",
+	-- 			transparent = true,
+	-- 		})
+	-- 		vim.cmd.colorscheme("onedark")
+	-- 	end,
+	-- },
 }
