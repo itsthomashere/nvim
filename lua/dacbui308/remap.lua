@@ -23,7 +23,8 @@ vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
--- vim.opt.colorcolumn = "90"
+vim.opt.linebreak = true
+vim.opt.colorcolumn = "90"
 
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.loaded_netrw = 1
@@ -44,8 +45,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
--- vim.opt.list = true
--- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "williamboman/mason.nvim", config = true },
-		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -60,7 +59,6 @@ return {
 						},
 					})
 				end,
-				capabilities = capabilities,
 
 				settings = {
 					Lua = {
@@ -70,121 +68,103 @@ return {
 					},
 				},
 			},
-			dockerls = {},
-			docker_compose_language_service = {},
-			html = {},
-		}
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-			},
-			handlers = {
-				function(server_name)
-					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
-				end,
-			},
-		})
-
-		local lspconfig = require("lspconfig")
-		-- For important lsp setup
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
-			cmd = {
-				"rust-analyzer",
-			},
-			settings = {
-				["rust-analyzer"] = {
-					checkOnSave = true,
-					check = {
-						command = "clippy",
-						features = "all",
-						allTargets = false,
-					},
-					cargo = {
-						buildScripts = {
+			rust_analyzer = {
+				cmd = {
+					"rust-analyzer",
+				},
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = true,
+						check = {
+							command = "clippy",
+							features = "all",
+							allTargets = false,
+						},
+						cargo = {
+							buildScripts = {
+								enable = true,
+							},
+							features = "all",
+						},
+						procMacro = {
 							enable = true,
 						},
-						features = "all",
-					},
-					procMacro = {
-						enable = true,
-					},
-					imports = {
-						group = {
-							enable = false,
+						imports = {
+							group = {
+								enable = false,
+							},
+							granularity = {
+								group = "module",
+							},
+							prefix = "self",
 						},
-						granularity = {
-							group = "module",
-						},
-						prefix = "self",
-					},
-					completion = {
-						postfix = {
-							enable = false,
-						},
-						snippets = {
-							custom = "None",
+						completion = {
+							postfix = {
+								enable = false,
+							},
+							snippets = {
+								custom = "None",
+							},
 						},
 					},
 				},
 			},
-		})
-
-		lspconfig.gopls.setup({
-			capabilities = capabilities,
-			settings = {
-				gopls = {
-					analyses = {
-						unusedparams = true,
+			gopls = {
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						staticcheck = true,
+						gofumpt = true,
 					},
-					hints = {
-						assignVariableTypes = true,
-						compositeLiteralFields = true,
-						compositeLiteralTypes = true,
-						constantValues = true,
-						functionTypeParameters = true,
-						parameterNames = true,
-						rangeVariableTypes = true,
-					},
-					staticcheck = true,
-					gofumpt = true,
 				},
 			},
-		})
-
-		lspconfig.ts_ls.setup({
-			init_options = {
-				preferences = {
-					includeInlayParameterNameHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-					importModuleSpecifierPreference = "relative",
-					importModuleSpecifierEnding = "minimal",
+			ts_ls = {
+				init_options = {
+					preferences = {
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayEnumMemberValueHints = true,
+						importModuleSpecifierPreference = "relative",
+						importModuleSpecifierEnding = "minimal",
+					},
 				},
+				root_dir = require("lspconfig").util.root_pattern("package.json"),
+				cmd = { "typescript-language-server", "--stdio" },
+				settings = {},
+				single_file_support = false,
 			},
-			root_dir = require("lspconfig").util.root_pattern("package.json"),
-			capabilities = capabilities,
-			cmd = { "typescript-language-server", "--stdio" },
-			settings = {},
-			single_file_support = false,
-		})
+			denols = {
+				root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
+			},
+			html = {
+				filetypes = { "html", "htmldjango", "templ" },
+			},
+			dockerls = {},
+			docker_compose_language_service = {},
+		}
+		require("mason").setup()
 
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
-		})
+		local lspconfig = require("lspconfig")
 
-		lspconfig.html.setup({
-			capabilities = capabilities,
-			filetypes = { "html", "htmldjango", "templ" },
-		})
+		for server_name, config in pairs(servers) do
+			config.capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+			lspconfig[server_name].setup(config)
+		end
 
 		-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		-- 	border = "rounded",

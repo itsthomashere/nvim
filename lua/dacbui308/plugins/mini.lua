@@ -21,7 +21,7 @@ return {
 				post = function() end,
 			},
 		})
-		require("mini.indentscope").setup()
+		-- require("mini.indentscope").setup()
 		require("mini.starter").setup({
 			header = "  Thomas  \n      ",
 			items = {},

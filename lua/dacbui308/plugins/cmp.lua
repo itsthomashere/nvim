@@ -8,6 +8,7 @@ return { -- Autocompletion
 	config = function()
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+		cmp.event:on("complete_done", vim.snippet.stop)
 		cmp.setup({
 			-- performance = {
 			-- 	max_view_entries = 15,
