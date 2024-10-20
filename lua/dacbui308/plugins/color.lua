@@ -56,15 +56,15 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("nightfox").setup()
-	-- 		vim.cmd.colorscheme("nightfox")
-	-- 	end,
-	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfox").setup()
+			vim.cmd.colorscheme("nightfox")
+		end,
+	},
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
@@ -120,16 +120,16 @@ return {
 	-- 		vim.cmd.colorscheme("onedark")
 	-- 	end,
 	-- },
-	{
-		"ellisonleao/gruvbox.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("gruvbox").setup({
-				contrast = "hard",
-			})
-
-			vim.cmd.colorscheme("gruvbox")
-		end,
-	},
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			contrast = "hard",
+	-- 		})
+	--
+	-- 		vim.cmd.colorscheme("gruvbox")
+	-- 	end,
+	-- },
 }
