@@ -31,7 +31,7 @@ return {
 	-- 	dependencies = { "rktjmp/lush.nvim" },
 	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		Transparent("jellybeans-nvim")
+	-- 		vim.cmd.colorscheme("jellybeans-nvim")
 	-- 	end,
 	-- },
 	-- {
@@ -56,15 +56,15 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nightfox").setup()
-			vim.cmd.colorscheme("nightfox")
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nightfox").setup()
+	-- 		vim.cmd.colorscheme("nightfox")
+	-- 	end,
+	-- },
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
@@ -105,7 +105,7 @@ return {
 	-- 				NonText = { fg = "#575e71" },
 	-- 			},
 	-- 		})
-	-- 		Transparent("ayu")
+	-- 		vim.cmd.colorscheme("ayu")
 	-- 	end,
 	-- },
 	-- {
@@ -120,4 +120,16 @@ return {
 	-- 		vim.cmd.colorscheme("onedark")
 	-- 	end,
 	-- },
+	{
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("gruvbox").setup({
+				contrast = "hard",
+			})
+
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	},
 }
