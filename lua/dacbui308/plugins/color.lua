@@ -56,15 +56,15 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nightfox").setup()
-			vim.cmd.colorscheme("nightfox")
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nightfox").setup()
+	-- 		vim.cmd.colorscheme("nightfox")
+	-- 	end,
+	-- },
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
@@ -132,4 +132,12 @@ return {
 	-- 		vim.cmd.colorscheme("gruvbox")
 	-- 	end,
 	-- },
+	{
+		dir = "/home/dacbui308/.config/nvim/grace",
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		config = function()
+			vim.cmd.colorscheme("grace")
+		end,
+	},
 }
