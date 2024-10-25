@@ -41,5 +41,8 @@ vim.keymap.set("n", "<A-k>", function()
 	vim.cmd(action)
 end)
 
+vim.keymap.set("n", "<leader>qfc", ":cexpr []<CR>")
+vim.keymap.set("n", "<leader>atc", ":lexpr []<CR>")
+
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")

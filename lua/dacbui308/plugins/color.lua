@@ -47,15 +47,15 @@ return {
 	-- 		Transparent("bluloco-dark")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("kanagawa").setup()
-	-- 		vim.cmd.colorscheme("kanagawa-wave")
-	-- 	end,
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup()
+			vim.cmd.colorscheme("kanagawa-wave")
+		end,
+	},
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	lazy = false,
@@ -132,12 +132,12 @@ return {
 	-- 		vim.cmd.colorscheme("gruvbox")
 	-- 	end,
 	-- },
-	{
-		dir = "/home/dacbui308/.config/nvim/grace",
-		dependencies = "rktjmp/lush.nvim",
-		lazy = false,
-		config = function()
-			vim.cmd.colorscheme("grace")
-		end,
-	},
+	-- {
+	-- 	dir = "/home/dacbui308/.config/nvim/grace",
+	-- 	dependencies = "rktjmp/lush.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		vim.cmd.colorscheme("grace")
+	-- 	end,
+	-- },
 }

@@ -27,8 +27,8 @@ return {
 			ignore_install = {},
 			sync_install = true,
 			auto_install = false,
-			highlight = { enable = false },
-			indent = { enable = false },
+			highlight = { enable = true },
+			indent = { enable = true },
 			additional_vim_regex_highlighting = false,
 		})
 	end,

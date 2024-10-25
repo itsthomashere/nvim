@@ -25,7 +25,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.linebreak = true
 vim.opt.colorcolumn = "90"
-vim.opt.cmdheight = 0
+-- vim.opt.cmdheight = 0
 
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.loaded_netrw = 1
