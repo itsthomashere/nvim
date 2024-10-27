@@ -47,15 +47,15 @@ return {
 	-- 		Transparent("bluloco-dark")
 	-- 	end,
 	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("kanagawa").setup()
-			vim.cmd.colorscheme("kanagawa-wave")
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup()
+	-- 		vim.cmd.colorscheme("kanagawa-wave")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"EdenEast/nightfox.nvim",
 	-- 	lazy = false,
@@ -75,17 +75,17 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("catppuccin").setup({
-	-- 			transparent_background = false,
-	-- 		})
-	-- 		Transparent("catppuccin-mocha")
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = false,
+			})
+			Transparent("catppuccin-mocha")
+		end,
+	},
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,

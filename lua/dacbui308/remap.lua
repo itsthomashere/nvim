@@ -24,7 +24,7 @@ vim.opt.updatetime = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.linebreak = true
-vim.opt.colorcolumn = "90"
+vim.opt.colorcolumn = "150"
 -- vim.opt.cmdheight = 0
 
 -- vim.g.loaded_netrwPlugin = 1
