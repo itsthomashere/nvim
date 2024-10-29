@@ -75,17 +75,17 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = false,
-			})
-			Transparent("catppuccin-mocha")
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			transparent_background = false,
+	-- 		})
+	-- 		Transparent("catppuccin-mocha")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,
@@ -140,4 +140,16 @@ return {
 	-- 		vim.cmd.colorscheme("grace")
 	-- 	end,
 	-- },
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_enable_italic = true
+			vim.cmd.colorscheme("gruvbox-material")
+		end,
+	},
 }
