@@ -1,6 +1,6 @@
 return {
 	"mbbill/undotree",
 	config = function()
-		vim.keymap.set("n", "<leader>tn", vim.cmd.UndotreeToggle, {})
+		require("dacbui308.custom.undotree")
 	end,
 }

@@ -14,9 +14,7 @@ return {
 		"MeanderingProgrammer/markdown.nvim",
 		dependencies = { "echasnovski/mini.nvim" }, -- if you prefer nvim-web-devicons
 		config = function()
-			require("render-markdown").setup({
-				enabled = true,
-			})
+			require("dacbui308.custom.ai")
 		end,
 	},
 }
