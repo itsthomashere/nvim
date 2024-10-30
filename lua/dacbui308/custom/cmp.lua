@@ -6,10 +6,10 @@ cmp.setup({
 	-- 	max_view_entries = 10,
 	-- },
 	matching = {
-		disallow_fuzzy_matching = false,
+		disallow_fuzzy_matching = true,
 		disallow_symbol_nonprefix_matching = true,
 		disallow_prefix_unmatching = false,
-		disallow_partial_fuzzy_matching = false,
+		disallow_partial_fuzzy_matching = true,
 		disallow_fullfuzzy_matching = true,
 		disallow_partial_matching = false,
 	},
