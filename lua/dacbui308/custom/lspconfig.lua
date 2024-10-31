@@ -146,7 +146,7 @@ local servers = {
 		root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
 	},
 	html = {
-		filetypes = { "html", "htmldjango", "templ" },
+		filetypes = { "html", "htmldjango", "tmpl", "gotmpl", "template" },
 	},
 	dockerls = {},
 	docker_compose_language_service = {},
