@@ -1,5 +1,8 @@
 vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
+		vim.api.nvim_set_hl(event.buf, "CurrentWord", { undercurl = true, underline = true })
+		vim.api.nvim_win_set_hl_ns(0, event.buf)
 		local map = function(keys, func, desc)
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
@@ -20,13 +23,41 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>lf", function()
 			vim.diagnostic.setloclist({ open = false })
 		end, "Set loclist")
+
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
-		if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-			map("<leader>h", function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), client.buf)
-			end, "[T]oggle Inlay [H]ints")
+
+		if client then
+			client.server_capabilities.semanticTokensProvider = nil
 		end
-		client.server_capabilities.semanticTokensProvider = nil
+
+		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+			map("<leader>h", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+			end, "Toggle Inlay [H]int")
+		end
+
+		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+			local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.document_highlight,
+			})
+
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = event.buf,
+				group = highlight_augroup,
+				callback = vim.lsp.buf.clear_references,
+			})
+
+			vim.api.nvim_create_autocmd("LspDetach", {
+				group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+				callback = function(env)
+					vim.lsp.buf.clear_references()
+					vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = env.buf })
+				end,
+			})
+		end
 	end,
 })
 
@@ -47,10 +78,8 @@ local servers = {
 				},
 				workspace = {
 					checkThirdParty = false,
-					library = {
-						vim.env.VIMRUNTIME,
-					},
 				},
+				library = vim.api.nvim_get_runtime_file("", true),
 			})
 		end,
 

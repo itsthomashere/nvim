@@ -155,8 +155,9 @@ return {
 			vim.g.gruvbox_material_diagnostic_text_highlight = 0
 			vim.g.gruvbox_material_inlay_hints_background = "dimmed"
 			vim.g.gruvbox_material_ui_contrast = "high"
-			vim.g.gruvbox_material_foreground = "material"
-			vim.g.gruvbox_material_transparent_background = 1
+			vim.g.gruvbox_material_foreground = "original"
+			vim.g.gruvbox_material_transparent_background = 0
+			vim.g.gruvbox_material_float_style = "dim"
 			vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},

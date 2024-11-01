@@ -20,7 +20,7 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { { "mode", icons_enabled = true, icon = "" } },
 		lualine_b = {},
-		lualine_c = { "lsp_progress" },
+		lualine_c = {},
 		lualine_x = { "diagnostics", "diff", "branch" },
 	},
 	inactive_sections = {},

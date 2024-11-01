@@ -114,3 +114,11 @@ function Transparent(color)
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none", ctermfg = "none" })
 end
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+	group = vim.api.nvim_create_augroup("html-template-filetypes", { clear = true }),
+	pattern = { "*.tmpl" },
+	callback = function()
+		vim.cmd("set filetype=gotmpl")
+	end,
+})

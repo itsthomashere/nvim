@@ -9,6 +9,8 @@ configs.setup({
 		"typescript",
 		"go",
 		"markdown",
+		"html",
+		"gotmpl",
 	},
 	incremental_selection = {
 		enable = false,
@@ -22,8 +24,8 @@ configs.setup({
 	modules = {},
 	ignore_install = {},
 	sync_install = true,
-	auto_install = true,
+	auto_install = false,
 	highlight = { enable = true },
-	indent = { enable = true },
+	indent = { enable = false },
 	additional_vim_regex_highlighting = false,
 })

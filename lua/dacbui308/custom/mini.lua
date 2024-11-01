@@ -25,3 +25,9 @@ require("mini.starter").setup({
 })
 require("mini.bufremove").setup()
 require("mini.icons").mock_nvim_web_devicons()
+require("mini.notify").setup({
+	window = {
+		max_width_share = 0.25,
+		winblend = 5,
+	},
+})
