@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.event:on("complete_done", vim.snippet.stop)
 cmp.setup({
 	-- performance = {
@@ -64,9 +63,19 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-		["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-		["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+		["<C-y>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				local entry = cmp.get_selected_entry()
+				if not entry then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				end
+				cmp.confirm()
+			else
+				fallback()
+			end
+		end, { "i", "s", "c" }),
 		["<C-Space>"] = cmp.mapping(function()
 			if cmp.visible_docs() then
 				cmp.close_docs()
@@ -96,6 +105,6 @@ cmp.setup({
 		-- documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 	},
 })
