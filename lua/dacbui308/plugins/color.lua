@@ -159,6 +159,7 @@ return {
 			vim.g.gruvbox_material_transparent_background = 1
 			vim.g.gruvbox_material_float_style = "dim"
 			vim.cmd.colorscheme("gruvbox-material")
+			vim.opt.statusline = "  %f %m %= %l:%c Chan "
 		end,
 	},
 }

@@ -24,12 +24,12 @@ vim.opt.updatetime = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.linebreak = true
-vim.opt.colorcolumn = "150"
+vim.opt.colorcolumn = "85"
 -- vim.opt.cmdheight = 0
 
 -- vim.g.loaded_netrwPlugin = 1
 -- vim.g.loaded_netrw = 1
-vim.cmd("set signcolumn=auto:1")
+vim.cmd("set signcolumn=auto:2")
 vim.opt.scrolloff = 10
 vim.g.netrw_banner = 0
 -- vim.g.netrw_liststyle = 3
@@ -122,3 +122,20 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
 		vim.cmd("set filetype=gotmpl")
 	end,
 })
+
+function Diagnostic()
+	local error = #vim.diagnostic.get(0, { severity = "ERROR" })
+	local warning = #vim.diagnostic.get(0, { severity = "WARN" })
+
+	local err = ""
+	if error ~= 0 then
+		err = "󰅚 " .. error
+	end
+
+	local wrn = ""
+	if warning ~= 0 then
+		wrn = "󰀪 " .. error
+	end
+
+	return wrn .. err
+end
