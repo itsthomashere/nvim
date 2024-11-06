@@ -52,7 +52,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+local signs = { Error = "󰅚", Warn = "󰀪", Hint = "󰌶", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -122,20 +122,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
 		vim.cmd("set filetype=gotmpl")
 	end,
 })
-
-function Diagnostic()
-	local error = #vim.diagnostic.get(0, { severity = "ERROR" })
-	local warning = #vim.diagnostic.get(0, { severity = "WARN" })
-
-	local err = ""
-	if error ~= 0 then
-		err = "󰅚 " .. error
-	end
-
-	local wrn = ""
-	if warning ~= 0 then
-		wrn = "󰀪 " .. error
-	end
-
-	return wrn .. err
-end

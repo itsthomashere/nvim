@@ -26,7 +26,7 @@ configs.setup({
 	sync_install = true,
 	auto_install = false,
 	highlight = { enable = true },
-	indent = { enable = false },
+	indent = { enable = true },
 	additional_vim_regex_highlighting = false,
 })
 

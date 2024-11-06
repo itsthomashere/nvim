@@ -1,3 +1,12 @@
+local function get_arguments()
+	return coroutine.create(function(dap_run_co)
+		local args = {}
+		vim.ui.input({ prompt = "Args: " }, function(input)
+			args = vim.split(input or "", " ")
+			coroutine.resume(dap_run_co, args)
+		end)
+	end)
+end
 local dap = require("dap")
 local dapui = require("dapui")
 require("nvim-dap-virtual-text").setup({})
@@ -137,6 +146,51 @@ dap.configurations.rust = {
 
 			return commands
 		end,
+	},
+	{
+		name = "Launch With Arguments",
+		type = "lldb",
+		request = "launch",
+		cwd = "${workspaceFolder}",
+		program = function()
+			return coroutine.create(function(coro)
+				local opts = {}
+				pickers
+					.new(opts, {
+						prompt_title = "Path to executable",
+						finder = finders.new_oneshot_job({ "fd", "--hidden", "--no-ignore", "--type", "x" }, {}),
+						sorter = conf.generic_sorter(opts),
+						attach_mappings = function(buffer_number)
+							actions.select_default:replace(function()
+								actions.close(buffer_number)
+								coroutine.resume(coro, action_state.get_selected_entry()[1])
+							end)
+							return true
+						end,
+					})
+					:find()
+			end)
+		end,
+		initCommands = function()
+			-- Find out where to look for the pretty printer Python module
+			local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
+
+			local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+			local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"
+
+			local commands = {}
+			local file = io.open(commands_file, "r")
+			if file then
+				for line in file:lines() do
+					table.insert(commands, line)
+				end
+				file:close()
+			end
+			table.insert(commands, 1, script_import)
+
+			return commands
+		end,
+		args = get_arguments,
 	},
 
 	{
