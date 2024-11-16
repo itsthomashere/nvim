@@ -13,6 +13,7 @@ vim.opt.statusline = " %f %m %= %l:%c Chan "
 -- Relative line numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.conceallevel = 1
 
 -- Mouse
 vim.opt.mouse = ""
