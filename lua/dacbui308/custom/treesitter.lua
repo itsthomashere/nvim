@@ -9,6 +9,7 @@ configs.setup({
 		"typescript",
 		"go",
 		"markdown",
+		"markdown_inline",
 		"html",
 		"gotmpl",
 	},

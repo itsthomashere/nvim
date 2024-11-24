@@ -12,6 +12,8 @@ return {
 
 	{
 		"MeanderingProgrammer/markdown.nvim",
+		lazy = true,
+		ft = "markdown",
 		dependencies = { "echasnovski/mini.nvim" }, -- if you prefer nvim-web-devicons
 		config = function()
 			require("dacbui308.custom.ai")

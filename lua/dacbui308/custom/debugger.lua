@@ -40,6 +40,7 @@ vim.keymap.set("n", "<leader>db", dap.step_back)
 vim.keymap.set("n", "<leader>do", dap.step_over)
 vim.keymap.set("n", "<leader>dO", dap.step_out)
 vim.keymap.set("n", "<leader>dI", dap.run_to_cursor)
+vim.keymap.set("n", "<leader>?", dapui.eval)
 
 dap.adapters.lldb = {
 	type = "executable",
