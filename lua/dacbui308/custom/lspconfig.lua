@@ -180,6 +180,7 @@ local servers = {
 	dockerls = {},
 	docker_compose_language_service = {},
 	clangd = {},
+	wgsl_analyzer = {},
 }
 require("mason").setup()
 

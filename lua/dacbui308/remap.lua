@@ -8,7 +8,6 @@ vim.opt.shiftwidth = 4
 vim.cmd.smartindent = true
 
 vim.opt.laststatus = 2 -- Or 3 for global statusline
-vim.opt.statusline = " %f %m %= %l:%c Chan "
 
 -- Relative line numbers
 vim.opt.relativenumber = true
@@ -109,8 +108,8 @@ function Transparent(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
-	vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
-	vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
+	-- vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+	-- vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
 	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none", ctermfg = "none" })
