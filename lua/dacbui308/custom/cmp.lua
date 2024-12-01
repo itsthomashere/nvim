@@ -83,17 +83,6 @@ cmp.setup({
 				cmp.open_docs()
 			end
 		end, { "i", "s" }),
-
-		["<C-l>"] = cmp.mapping(function()
-			if vim.snippet.active({ direction = 1 }) then
-				vim.snippet.jump(1)
-			end
-		end, { "i", "s" }),
-		["<C-h>"] = cmp.mapping(function()
-			if vim.snippet.active({ direction = -1 }) then
-				vim.snippet.jump(-1)
-			end
-		end, { "i", "s" }),
 	}),
 	sources = {
 		{ name = "nvim_lsp", priority = 1000 },
@@ -101,8 +90,8 @@ cmp.setup({
 		{ name = "crates" },
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		ghost_text = false,

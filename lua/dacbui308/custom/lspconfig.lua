@@ -3,26 +3,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
 		vim.api.nvim_set_hl(event.buf, "CurrentWord", { undercurl = true, underline = true })
 		vim.api.nvim_win_set_hl_ns(0, event.buf)
-		local map = function(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
-		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
-		map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
-		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("<leader>lf", function()
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references)
+		vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
+		vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition)
+		vim.keymap.set("n", "<leader>ds", vim.lsp.buf.document_symbol)
+		vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol)
+		vim.keymap.set("n", "<leader>wfl", vim.lsp.buf.list_workspace_folders)
+		vim.keymap.set("n", "<leader>wfa", vim.lsp.buf.add_workspace_folder)
+		vim.keymap.set("n", "<leader>wfr", vim.lsp.buf.remove_workspace_folder)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+		vim.keymap.set("n", "<leader>lf", function()
 			vim.diagnostic.setloclist({ open = false })
-		end, "Set loclist")
+		end)
+		vim.keymap.set({ "i", "n" }, "<C-l>", vim.lsp.buf.signature_help)
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -31,9 +29,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-			map("<leader>h", function()
+			vim.keymap.set("n", "<leader>h", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-			end, "Toggle Inlay [H]int")
+			end)
 		end
 
 		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -191,7 +189,7 @@ for server_name, config in pairs(servers) do
 	lspconfig[server_name].setup(config)
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+-- 	border = "rounded",
+-- })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
