@@ -1,7 +1,9 @@
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
-		vim.api.nvim_set_hl(event.buf, "CurrentWord", { undercurl = true, underline = true })
+		vim.api.nvim_set_hl(event.buf, "LspReferenceText", { undercurl = true, underline = true })
+		vim.api.nvim_set_hl(event.buf, "LspReferenceRead", { undercurl = true, underline = true })
+		vim.api.nvim_set_hl(event.buf, "LspReferenceWrite", { undercurl = true, underline = true })
 		vim.api.nvim_win_set_hl_ns(0, event.buf)
 
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition)

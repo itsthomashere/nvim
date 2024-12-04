@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = { "nvim-treesitter/nvim-treesitter-context" },
+	dependencies = { "nvim-treesitter/nvim-treesitter-context", "https://gitlab.com/HiPhish/rainbow-delimiters.nvim" },
 	build = ":TSUpdate",
 	config = function()
 		require("dacbui308.custom.treesitter")

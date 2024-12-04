@@ -1,19 +1,19 @@
 return {
-	{
-		"rose-pine/neovim",
-		-- priority = 1000,
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				styles = {
-					italic = true,
-					transparency = false,
-				},
-			})
-			Transparent("rose-pine-moon")
-			vim.opt.statusline = "  %f %m %= %l:%c Chan "
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	-- priority = 1000,
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			styles = {
+	-- 				italic = true,
+	-- 				transparency = false,
+	-- 			},
+	-- 		})
+	-- 		Transparent("rose-pine-moon")
+	-- 		vim.opt.statusline = "  %f %m %= %l:%c Chan "
+	-- 	end,
+	-- },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	priority = 1000,
@@ -57,15 +57,16 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"EdenEast/nightfox.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("nightfox").setup()
-	-- 		vim.cmd.colorscheme("nightfox")
-	-- 	end,
-	-- },
+	{
+		"EdenEast/nightfox.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nightfox").setup()
+			Transparent("nightfox")
+			vim.opt.statusline = "  %f %m %= %l:%c Chan "
+		end,
+	},
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
