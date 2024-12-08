@@ -57,16 +57,16 @@ return {
 	-- 		vim.cmd.colorscheme("kanagawa-wave")
 	-- 	end,
 	-- },
-	{
-		"EdenEast/nightfox.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nightfox").setup()
-			Transparent("nightfox")
-			vim.opt.statusline = "  %f %m %= %l:%c Chan "
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nightfox").setup()
+	-- 		Transparent("nightfox")
+	-- 		vim.opt.statusline = "  %f %m %= %l:%c Chan "
+	-- 	end,
+	-- },
 	--
 	-- {
 	-- 	"Mofiqul/dracula.nvim",
@@ -77,17 +77,17 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("catppuccin").setup({
-	-- 			transparent_background = false,
-	-- 		})
-	-- 		Transparent("catppuccin-mocha")
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = false,
+			})
+			Transparent("catppuccin-mocha")
+		end,
+	},
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,

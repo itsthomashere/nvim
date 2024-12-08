@@ -37,7 +37,7 @@ vim.g.netrw_banner = 0
 -- vim.g.netrw_winsize = 25
 vim.opt.autoread = true
 vim.o.termguicolors = true
-vim.o.guicursor = ""
+vim.o.guicursor = "n-v-c-i-c-ve-r-cr-o:block-blinkwait700-blinkoff400-blinkon250"
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 	command = "if mode() != 'c' | checktime | endif",
 	pattern = { "*" },

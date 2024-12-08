@@ -27,13 +27,8 @@ cmp.setup({
 			name = "custom",
 			selection_order = "top_down",
 		},
-		format = function(entry, vim_item)
-			local stuff = ({
-				buffer = "[B]",
-				nvim_lsp = "[L]",
-				path = "[D]",
-			})[entry.source.name]
-			vim_item.kind = string.format("%s %s", stuff, vim_item.kind) -- This concatenates the icons with the name of the item kind
+		format = function(_, vim_item)
+			vim_item.menu = nil
 
 			if vim_item.abbr ~= nil then
 				if vim.fn.strlen(vim_item.abbr) > 35 then
@@ -42,16 +37,9 @@ cmp.setup({
 					vim_item.abbr = (vim.fn.strcharpart(vim_item.abbr, 0))
 				end
 			end
-			if vim_item.menu ~= nil then
-				if vim.fn.strlen(vim_item.menu) > 25 then
-					vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0, 20) .. "...")
-				else
-					vim_item.menu = (vim.fn.strcharpart(vim_item.menu, 0))
-				end
-			end
 			return vim_item
 		end,
-		fields = { "abbr", "menu", "kind" },
+		fields = { "abbr", "kind" },
 		expandable_indicator = false,
 	},
 	snippet = {
