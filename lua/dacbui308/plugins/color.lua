@@ -86,6 +86,7 @@ return {
 				transparent_background = false,
 			})
 			Transparent("catppuccin-mocha")
+			vim.opt.statusline = "  %f %m %= %l:%c Chan "
 		end,
 	},
 	-- {

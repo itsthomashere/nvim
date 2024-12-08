@@ -8,13 +8,11 @@ require("conform").setup({
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "black" },
 		javascript = { "prettier" },
 		html = { "prettier" },
 		css = { "prettier" },
 		json = { "prettier" },
 		typescript = { "prettier" },
-		kotlin = { "ktfmt" },
 	},
 })
 
