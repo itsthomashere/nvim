@@ -167,6 +167,14 @@ local servers = {
 			},
 		},
 		root_dir = require("lspconfig").util.root_pattern("package.json"),
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+		},
 		cmd = { "typescript-language-server", "--stdio" },
 		settings = {},
 		single_file_support = false,
@@ -181,6 +189,7 @@ local servers = {
 	docker_compose_language_service = {},
 	clangd = {},
 	wgsl_analyzer = {},
+	tailwindcss = {},
 }
 require("mason").setup()
 

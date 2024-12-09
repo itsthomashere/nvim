@@ -13,6 +13,8 @@ require("conform").setup({
 		css = { "prettier" },
 		json = { "prettier" },
 		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
 	},
 })
 
