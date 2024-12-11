@@ -44,4 +44,19 @@ function lsp_utils.buf_request_lsp(client_name, method, params, bufnr, handler)
 	return success
 end
 
+---@param client_name string
+---@param method string
+---@param params table | nil
+function lsp_utils.notify(client_name, method, params)
+	local success = false
+	local clients = lsp_utils.get_client(0, { name = client_name, method = method })
+	for _, client in ipairs(clients) do
+		local _, _ = client.notify(method, params)
+		success = true
+	end
+	if not success then
+		vim.notify("No rust analyzer found", vim.log.levels.ERROR)
+	end
+end
+
 return lsp_utils
