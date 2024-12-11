@@ -77,18 +77,18 @@ return {
 	-- 		Transparent("dracula")
 	-- 	end,
 	-- },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = false,
-			})
-			Transparent("catppuccin-mocha")
-			vim.opt.statusline = "  %f %m %= %l:%c Chan "
-		end,
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("catppuccin").setup({
+	-- 			transparent_background = false,
+	-- 		})
+	-- 		Transparent("catppuccin-mocha")
+	-- 		vim.opt.statusline = "  %f %m %= %l:%c Chan "
+	-- 	end,
+	-- },
 	-- {
 	-- 	"eldritch-theme/eldritch.nvim",
 	-- 	lazy = false,
@@ -143,26 +143,26 @@ return {
 	-- 		vim.cmd.colorscheme("grace")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"sainnhe/gruvbox-material",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		-- Optionally configure and load the colorscheme
-	-- 		-- directly inside the plugin declaration.
-	-- 		vim.g.gruvbox_material_background = "hard"
-	-- 		vim.g.gruvbox_material_enable_italic = true
-	-- 		vim.g.gruvbox_material_better_performance = 0
-	-- 		vim.g.gruvbox_material_diagnostic_line_highlight = 1
-	-- 		vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
-	-- 		vim.g.gruvbox_material_diagnostic_text_highlight = 0
-	-- 		vim.g.gruvbox_material_inlay_hints_background = "dimmed"
-	-- 		vim.g.gruvbox_material_ui_contrast = "high"
-	-- 		vim.g.gruvbox_material_foreground = "mixed"
-	-- 		vim.g.gruvbox_material_transparent_background = 1
-	-- 		vim.g.gruvbox_material_float_style = "dim"
-	-- 		vim.cmd.colorscheme("gruvbox-material")
-	-- 		vim.opt.statusline = "  %f %m %= %l:%c Chan "
-	-- 	end,
-	-- },
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_enable_italic = true
+			vim.g.gruvbox_material_better_performance = 0
+			vim.g.gruvbox_material_diagnostic_line_highlight = 1
+			vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
+			vim.g.gruvbox_material_diagnostic_text_highlight = 0
+			vim.g.gruvbox_material_inlay_hints_background = "dimmed"
+			vim.g.gruvbox_material_ui_contrast = "high"
+			vim.g.gruvbox_material_foreground = "mixed"
+			vim.g.gruvbox_material_transparent_background = 1
+			vim.g.gruvbox_material_float_style = "dim"
+			vim.cmd.colorscheme("gruvbox-material")
+			vim.opt.statusline = "  %f %m %= %l:%c Chan "
+		end,
+	},
 }
