@@ -22,28 +22,6 @@ local function parse_lines(result)
 	return ret
 end
 
-local function handler(_, result)
-	if result == nil then
-		vim.notify("No macro under cursor!", vim.log.levels.INFO)
-		return
-	end
-
-	-- check if a buffer with the latest id is already open, if it is then
-	-- delete it and continue
-	utils.delete_buf(latest_buf_id)
-
-	-- create a new buffer
-	latest_buf_id = vim.api.nvim_create_buf(false, true) -- not listed and scratch
-
-	utils.open_split(true, latest_buf_id)
-
-	vim.bo[latest_buf_id].filetype = "rust"
-	vim.api.nvim_buf_set_lines(latest_buf_id, 0, 0, false, parse_lines(result))
-	vim.bo[latest_buf_id].readonly = true
-
-	utils.resize(true, "-25")
-end
-
 function rust.expand_macro()
 	local clients = lsp.get_client(0, {
 		name = "rust_analyzer",
@@ -52,7 +30,27 @@ function rust.expand_macro()
 		return
 	end
 	local params = vim.lsp.util.make_position_params(0, clients[1].offset_encoding or "utf-8")
-	lsp.buf_request_lsp("rust_analyzer", "rust-analyzer/expandMacro", params, 0, handler)
+	lsp.buf_request_lsp("rust_analyzer", "rust-analyzer/expandMacro", params, 0, function(_, result)
+		if result == nil then
+			vim.notify("No macro under cursor!", vim.log.levels.INFO)
+			return
+		end
+
+		-- check if a buffer with the latest id is already open, if it is then
+		-- delete it and continue
+		utils.delete_buf(latest_buf_id)
+
+		-- create a new buffer
+		latest_buf_id = vim.api.nvim_create_buf(false, true) -- not listed and scratch
+
+		utils.open_split(true, latest_buf_id)
+
+		vim.bo[latest_buf_id].filetype = "rust"
+		vim.api.nvim_buf_set_lines(latest_buf_id, 0, 0, false, parse_lines(result))
+		vim.bo[latest_buf_id].readonly = true
+
+		utils.resize(true, "-25")
+	end)
 end
 
 function rust.setup(config)
