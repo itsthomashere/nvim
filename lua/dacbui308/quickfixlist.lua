@@ -11,7 +11,7 @@ vim.keymap.set("n", "<leader>att", function()
 	vim.cmd(action)
 end)
 
-vim.keymap.set("n", "<C-j>", function()
+vim.keymap.set("n", "<A-j>", function()
 	local win = vim.api.nvim_get_current_win()
 	local loclist_winid = vim.fn.getloclist(win, { winid = 0 }).winid
 	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
@@ -20,13 +20,11 @@ vim.keymap.set("n", "<C-j>", function()
 		action = "cnext"
 	elseif loclist_winid > 0 and qf_winid == 0 then
 		action = "lnext"
-	else
-		action = "move .+1<CR>=="
 	end
 	vim.cmd(action)
 end)
 
-vim.keymap.set("n", "<C-k>", function()
+vim.keymap.set("n", "<A-k>", function()
 	local win = vim.api.nvim_get_current_win()
 	local loclist_winid = vim.fn.getloclist(win, { winid = 0 }).winid
 	local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
@@ -35,8 +33,6 @@ vim.keymap.set("n", "<C-k>", function()
 		action = "cprev"
 	elseif loclist_winid > 0 and qf_winid == 0 then
 		action = "lprev"
-	else
-		action = "move .-2<CR>=="
 	end
 	vim.cmd(action)
 end)
