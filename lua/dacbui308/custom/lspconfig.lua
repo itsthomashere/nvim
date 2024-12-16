@@ -191,6 +191,65 @@ local servers = {
 	wgsl_analyzer = {},
 	tailwindcss = {},
 }
+
+if string.match(vim.uv.cwd(), "Projects/rust/rust") then
+	servers.rust_analyzer.settings["rust-analyzer"] = {
+		checkOnSave = true,
+		check = {
+			invocationStrategy = "once",
+			overrideCommand = {
+				"python3",
+				"x.py",
+				"check",
+				"--json-output",
+			},
+		},
+		linkedProjects = {
+			"Cargo.toml",
+			"library/Cargo.toml",
+			"src/tools/x/Cargo.toml",
+			"src/bootstrap/Cargo.toml",
+			"src/tools/rust-analyzer/Cargo.toml",
+			"compiler/rustc_codegen_cranelift/Cargo.toml",
+			"compiler/rustc_codegen_gcc/Cargo.toml",
+		},
+		rustfmt = {
+			overrideCommand = {
+				"${workspaceFolder}/build/host/rustfmt/bin/rustfmt",
+				"--edition=2021",
+			},
+		},
+		cargo = {
+			buildScripts = {
+				enable = true,
+				invocationStrategy = "once",
+				overrideCommand = {
+					"python3",
+					"x.py",
+					"check",
+					"--json-output",
+				},
+			},
+			extraEnv = {
+				RUSTC_BOOTSTRAP = "1",
+			},
+			sysrootSrc = "./library",
+			features = "all",
+		},
+		rustc = {
+			source = "./Cargo.toml",
+		},
+		procMacro = {
+			enable = true,
+			server = "${workspaceFolder}/build/host/stage0/libexec/rust-analyzer-proc-macro-srv",
+		},
+		server = {
+			extraEnv = {
+				RUSTUP_TOOLCHAIN = "nightly",
+			},
+		},
+	}
+end
 require("mason").setup()
 
 local lspconfig = require("lspconfig")
