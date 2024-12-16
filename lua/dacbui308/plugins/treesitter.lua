@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter-context",
+		-- "nvim-treesitter/nvim-treesitter-context",
 		-- url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 	},
 	build = ":TSUpdate",

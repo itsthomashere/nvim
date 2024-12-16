@@ -200,6 +200,73 @@ for server_name, config in pairs(servers) do
 	lspconfig[server_name].setup(config)
 end
 
+-- if string.match(vim.fs.root(0, { "Cargo.toml" }) or "", "Projects/rust/rust") then
+-- 	lspconfig["rust_analyzer"].setup({
+-- 		cmd = {
+-- 			"rust-analyzer",
+-- 		},
+-- 		capabilities = capabilities,
+-- 		settings = {
+-- 			["rust-analyzer"] = {
+-- 				checkOnSave = true,
+-- 				check = {
+-- 					invocationStrategy = "once",
+-- 					overrideCommand = {
+-- 						"python3",
+-- 						"x.py",
+-- 						"check",
+-- 						"--json-output",
+-- 					},
+-- 				},
+-- 				linkedProjects = {
+-- 					"Cargo.toml",
+-- 					"library/Cargo.toml",
+-- 					"src/tools/x/Cargo.toml",
+-- 					"src/bootstrap/Cargo.toml",
+-- 					"src/tools/rust-analyzer/Cargo.toml",
+-- 					"compiler/rustc_codegen_cranelift/Cargo.toml",
+-- 					"compiler/rustc_codegen_gcc/Cargo.toml",
+-- 				},
+-- 				rustfmt = {
+-- 					overrideCommand = {
+-- 						"${workspaceFolder}/build/host/rustfmt/bin/rustfmt",
+-- 						"--edition=2021",
+-- 					},
+-- 				},
+-- 				cargo = {
+-- 					buildScripts = {
+-- 						enable = true,
+-- 						invocationStrategy = "once",
+-- 						overrideCommand = {
+-- 							"python3",
+-- 							"x.py",
+-- 							"check",
+-- 							"--json-output",
+-- 						},
+-- 					},
+-- 					extraEnv = {
+-- 						RUSTC_BOOTSTRAP = "1",
+-- 					},
+-- 					sysrootSrc = "./library",
+-- 					features = "all",
+-- 				},
+-- 				rustc = {
+-- 					source = "./Cargo.toml",
+-- 				},
+-- 				procMacro = {
+-- 					enable = true,
+-- 					server = "${workspaceFolder}/build/host/stage0/libexec/rust-analyzer-proc-macro-srv",
+-- 				},
+-- 				server = {
+-- 					extraEnv = {
+-- 						RUSTUP_TOOLCHAIN = "nightly",
+-- 					},
+-- 				},
+-- 			},
+-- 		},
+-- 	})
+-- end
+
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 -- 	border = "rounded",
 -- })

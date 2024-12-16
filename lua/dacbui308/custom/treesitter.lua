@@ -31,6 +31,6 @@ configs.setup({
 	additional_vim_regex_highlighting = false,
 })
 
-require("treesitter-context").setup({
-	max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
-})
+-- require("treesitter-context").setup({
+-- 	max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
+-- })
