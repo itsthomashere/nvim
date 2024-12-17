@@ -2,6 +2,7 @@ local fzf = require("fzf-lua")
 fzf.register_ui_select()
 fzf.setup({
 	{ "borderless", "telescope" },
+	fzf_opts = { ["--layout"] = "reverse" },
 	git_icons = false,
 	winopts = {
 		preview = {

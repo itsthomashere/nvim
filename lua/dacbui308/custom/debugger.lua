@@ -99,7 +99,7 @@ dap.configurations.cpp = {
 				-- 	})
 				-- 	:find()
 
-				fzf.fzf_exec("fd --hidden --no-ignore --type x", {
+				fzf.fzf_exec("fd --hidden --no-ignore --type x . " .. vim.env.CARGO_TARGET_DIR, {
 					prompt = "Path to executable> ",
 					actions = {
 						["default"] = function(selected)
@@ -136,7 +136,7 @@ dap.configurations.rust = {
 				-- 		end,
 				-- 	})
 				-- 	:find()
-				fzf.fzf_exec("fd --hidden --no-ignore --type x", {
+				fzf.fzf_exec("fd --hidden --no-ignore --type x . " .. vim.env.CARGO_TARGET_DIR, {
 					prompt = "Path to executable> ",
 					actions = {
 						["default"] = function(selected)
@@ -188,7 +188,7 @@ dap.configurations.rust = {
 				-- 		end,
 				-- 	})
 				-- 	:find()
-				fzf.fzf_exec("fd --hidden --no-ignore --type x", {
+				fzf.fzf_exec("fd --hidden --no-ignore --type x . " .. vim.env.CARGO_TARGET_DIR, {
 					prompt = "Path to executable> ",
 					actions = {
 						["default"] = function(selected)

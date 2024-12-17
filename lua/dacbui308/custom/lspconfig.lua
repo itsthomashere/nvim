@@ -193,6 +193,13 @@ local servers = {
 }
 
 if string.match(vim.uv.cwd(), "Projects/rust/rust") then
+	servers.rust_analyzer.root_dir = "~/Projects/rust/rust/"
+	servers.rust_analyzer.cmd = {
+		"rustup",
+		"run",
+		"nightly",
+		"rust-analyzer",
+	}
 	servers.rust_analyzer.settings["rust-analyzer"] = {
 		checkOnSave = true,
 		check = {
@@ -205,17 +212,17 @@ if string.match(vim.uv.cwd(), "Projects/rust/rust") then
 			},
 		},
 		linkedProjects = {
-			"Cargo.toml",
-			"library/Cargo.toml",
-			"src/tools/x/Cargo.toml",
-			"src/bootstrap/Cargo.toml",
-			"src/tools/rust-analyzer/Cargo.toml",
-			"compiler/rustc_codegen_cranelift/Cargo.toml",
-			"compiler/rustc_codegen_gcc/Cargo.toml",
+			"./Cargo.toml",
+			"./library/Cargo.toml",
+			"./src/tools/x/Cargo.toml",
+			"./src/bootstrap/Cargo.toml",
+			"./src/tools/rust-analyzer/Cargo.toml",
+			"./compiler/rustc_codegen_cranelift/Cargo.toml",
+			"./compiler/rustc_codegen_gcc/Cargo.toml",
 		},
 		rustfmt = {
 			overrideCommand = {
-				"${workspaceFolder}/build/host/rustfmt/bin/rustfmt",
+				"./build/host/rustfmt/bin/rustfmt",
 				"--edition=2021",
 			},
 		},
@@ -241,7 +248,7 @@ if string.match(vim.uv.cwd(), "Projects/rust/rust") then
 		},
 		procMacro = {
 			enable = true,
-			server = "${workspaceFolder}/build/host/stage0/libexec/rust-analyzer-proc-macro-srv",
+			server = "./build/host/stage0/libexec/rust-analyzer-proc-macro-srv",
 		},
 		server = {
 			extraEnv = {

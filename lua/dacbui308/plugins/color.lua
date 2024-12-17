@@ -1,7 +1,7 @@
 return {
 	{
 		"rose-pine/neovim",
-		-- priority = 1000,
+		priority = 1000,
 		name = "rose-pine",
 		config = function()
 			require("rose-pine").setup({
@@ -10,8 +10,8 @@ return {
 					transparency = false,
 				},
 			})
-			Transparent("rose-pine-moon")
 			vim.opt.statusline = "  %f %m %= %l:%c Chan "
+			Transparent("rose-pine-moon")
 		end,
 	},
 	-- {
