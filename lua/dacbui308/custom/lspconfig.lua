@@ -193,6 +193,16 @@ local servers = {
 }
 
 if string.match(vim.uv.cwd(), "Projects/rust/rust") then
+	-- TODO: Remove this after 0.11 or 0.10.3
+	for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
+		local default_diagnostic_handler = vim.lsp.handlers[method]
+		vim.lsp.handlers[method] = function(err, result, context, config)
+			if err ~= nil and err.code == -32802 then
+				return
+			end
+			return default_diagnostic_handler(err, result, context, config)
+		end
+	end
 	servers.rust_analyzer.root_dir = "~/Projects/rust/rust/"
 	servers.rust_analyzer.cmd = {
 		"rustup",
