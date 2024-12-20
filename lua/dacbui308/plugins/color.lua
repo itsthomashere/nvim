@@ -1,19 +1,18 @@
 return {
-	{
-		"rose-pine/neovim",
-		priority = 1000,
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				styles = {
-					italic = true,
-					transparency = false,
-				},
-			})
-			vim.opt.statusline = "  %f %m %= %l:%c Chan "
-			Transparent("rose-pine-moon")
-		end,
-	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	priority = 1000,
+	-- 	name = "rose-pine",
+	-- 	config = function()
+	-- 		require("rose-pine").setup({
+	-- 			styles = {
+	-- 				italic = true,
+	-- 				transparency = false,
+	-- 			},
+	-- 		})
+	-- 		SetColorscheme("rose-pine-moon", true)
+	-- 	end,
+	-- },
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	priority = 1000,
@@ -163,6 +162,52 @@ return {
 	-- 		vim.g.gruvbox_material_float_style = "dim"
 	-- 		vim.cmd.colorscheme("gruvbox-material")
 	-- 		vim.opt.statusline = "  %f %m %= %l:%c Chan "
+	-- 	end,
+	-- },
+	--
+	{
+		"Tsuzat/NeoSolarized.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("NeoSolarized").setup({
+				style = "dark",
+				transparent = false,
+			})
+			SetColorscheme("NeoSolarized", false)
+		end,
+	},
+
+	-- {
+	-- 	url = "https://codeberg.org/jthvai/lavender.nvim",
+	-- 	branch = "stable",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.lavender = {
+	-- 			transparent = {
+	-- 				background = false,
+	-- 				float = false,
+	-- 				popup = false,
+	-- 				sidebar = false,
+	-- 			},
+	-- 			contrast = true,
+	-- 			signs = true,
+	-- 		}
+	-- 		SetColorscheme("lavender", false)
+	-- 	end,
+	-- },
+
+	-- {
+	-- 	"zenbones-theme/zenbones.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.background = "dark"
+	-- 		vim.g.zenbones_compat = 1
+	-- 		vim.g.zenbones_darkness = "stark"
+	-- 		vim.g.zenbones_darken_comments = 45
+	-- 		SetColorscheme("zenbones", false)
 	-- 	end,
 	-- },
 }
