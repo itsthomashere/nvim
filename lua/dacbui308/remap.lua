@@ -122,3 +122,21 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
 		vim.cmd("set filetype=gotmpl")
 	end,
 })
+
+function SetColorscheme(color, transparent)
+	vim.cmd.colorscheme(color)
+	vim.api.nvim_set_hl(0, "LspReferenceText", { undercurl = true, underline = true, bg = "none" })
+	vim.api.nvim_set_hl(0, "LspReferenceRead", { undercurl = true, underline = true, bg = "none" })
+	vim.api.nvim_set_hl(0, "LspReferenceWrite", { undercurl = true, underline = true, bg = "none" })
+	if transparent then
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none", ctermbg = "none" })
+		-- vim.api.nvim_set_hl(0, "NormalSB", { bg = "none" })
+		-- vim.api.nvim_set_hl(0, "StatusLine", { ctermfg = "none" })
+		-- vim.api.nvim_set_hl(0, "StatusLineNC", { ctermfg = "none" })
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		-- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+		-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none", ctermbg = "none", ctermfg = "none" })
+	end
+	vim.opt.statusline = "  %f %m %= %l:%c Chan "
+end
