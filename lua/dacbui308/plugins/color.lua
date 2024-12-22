@@ -165,18 +165,18 @@ return {
 	-- 	end,
 	-- },
 	--
-	{
-		"Tsuzat/NeoSolarized.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("NeoSolarized").setup({
-				style = "dark",
-				transparent = false,
-			})
-			SetColorscheme("NeoSolarized", false)
-		end,
-	},
+	-- {
+	-- 	"Tsuzat/NeoSolarized.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("NeoSolarized").setup({
+	-- 			style = "dark",
+	-- 			transparent = false,
+	-- 		})
+	-- 		SetColorscheme("NeoSolarized", false)
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	url = "https://codeberg.org/jthvai/lavender.nvim",
@@ -210,4 +210,14 @@ return {
 	-- 		SetColorscheme("zenbones", false)
 	-- 	end,
 	-- },
+
+	{
+		dir = "/home/dacbui308/.config/nvim/grace",
+		dependencies = { "rktjmp/lush.nvim" },
+		lazy = false,
+		priority = 1000,
+		config = function()
+			SetColorscheme("grace", false)
+		end,
+	},
 }

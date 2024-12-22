@@ -22,6 +22,7 @@ require("blink.cmp").setup({
 			},
 		},
 		menu = {
+			-- border = "single",
 			draw = {
 				columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } },
 				components = {
@@ -35,6 +36,9 @@ require("blink.cmp").setup({
 			},
 		},
 		documentation = {
+			-- window = {
+			-- 	border = "single",
+			-- },
 			auto_show = true,
 			auto_show_delay_ms = 0,
 			treesitter_highlighting = true,
