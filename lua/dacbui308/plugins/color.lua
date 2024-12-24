@@ -211,13 +211,13 @@ return {
 	-- 	end,
 	-- },
 
-	{
-		dir = "/home/dacbui308/.config/nvim/grace",
-		dependencies = { "rktjmp/lush.nvim" },
-		lazy = false,
-		priority = 1000,
-		config = function()
-			SetColorscheme("grace", false)
-		end,
-	},
+	-- {
+	-- 	dir = "/home/dacbui308/.config/nvim/grace",
+	-- 	dependencies = { "rktjmp/lush.nvim", "rktjmp/shipwright.nvim" },
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		SetColorscheme("grace", false)
+	-- 	end,
+	-- },
 }

@@ -140,3 +140,5 @@ function SetColorscheme(color, transparent)
 	end
 	vim.opt.statusline = "  %f %m %= %l:%c Chan "
 end
+
+require("dacbui308.color").setup()

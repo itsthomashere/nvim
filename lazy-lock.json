@@ -7,7 +7,6 @@
   "harpoon": { "branch": "harpoon2", "commit": "a84ab829eaf3678b586609888ef52f7779102263" },
   "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
   "lazydev.nvim": { "branch": "main", "commit": "8620f82ee3f59ff2187647167b6b47387a13a018" },
-  "lush.nvim": { "branch": "main", "commit": "45a79ec4acb5af783a6a29673a999ce37f00497e" },
   "markdown.nvim": { "branch": "main", "commit": "0022a579ac7355966be5ade77699b88c76b6a549" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "mini.nvim": { "branch": "main", "commit": "7b210cc5207e36f562f6c1e83200d5dfc0a4451d" },
