@@ -257,6 +257,52 @@ local theme = lush(function(injected_functions)
 		sym("@diff.plus")({ bg = palate.bg, fg = palate.green }),
 		sym("@diff.minus")({ bg = palate.bg, fg = palate.red }),
 		sym("@diff.delta")({ bg = palate.bg, fg = palate.blue }),
+		sym("@spell")({ fg = palate.inlined_bg }),
+		sym("@text.literal")({ fg = palate.searched }), -- Comment
+		sym("@text.reference")({ fg = palate.fg }), -- Identifier
+		sym("@text.title")({ fg = palate.fg }), -- Title
+		sym("@text.uri")({ fg = palate.fg }), -- Underlined
+		sym("@text.underline")({ fg = palate.fg }), -- Underlined
+		sym("@text.todo")({ bg = palate.blue, fg = palate.inlined_bg }), -- Todo
+		sym("@comment")({ fg = palate.inlined_bg }), -- Comment
+		sym("@punctuation")({ fg = palate.cursor }), -- Delimiter
+		sym("@constant")({ fg = palate.fg }), -- Constant
+		sym("@constant.builtin")({ fg = palate.fg }), -- Special
+		sym("@constant.macro")({ fg = palate.fg }), -- Define
+		sym("@define")({}), -- Define
+		sym("@macro")({ fg = palate.red }), -- Macro
+		sym("@string")({ fg = palate.green }), -- String
+		sym("@string.escape")({ fg = palate.searched }), -- SpecialChar
+		sym("@string.special")({ fg = palate.searched }), -- SpecialChar
+		sym("@character")({ fg = palate.fg }), -- Character
+		sym("@character.special")({ fg = palate.searched }), -- SpecialChar
+		sym("@number")({ fg = palate.blue }), -- Number
+		sym("@boolean")({ fg = palate.fg }), -- Boolean
+		sym("@float")({ fg = palate.blue }), -- Float
+		sym("@function")({ fg = palate.fg }), -- Function
+		sym("@function.builtin")({ fg = palate.fg }), -- Special
+		sym("@function.macro")({ fg = palate.fg }), -- Macro
+		sym("@parameter")({ fg = palate.fg }), -- Identifier
+		sym("@method")({ fg = palate.fg }), -- Function
+		sym("@field")({ fg = palate.fg }), -- Identifier
+		sym("@property")({ fg = palate.fg }), -- Identifier
+		sym("@constructor")({ fg = palate.fg }), -- Special
+		sym("@conditional")({ fg = palate.fg }), -- Conditional
+		sym("@repeat")({ fg = palate.fg }), -- Repeat
+		sym("@label")({ fg = palate.fg }), -- Label
+		sym("@operator")({ fg = palate.fg }), -- Operator
+		sym("@keyword")({ fg = palate.fg }), -- Keyword
+		sym("@exception")({ fg = palate.fg }), -- Exception
+		sym("@variable")({ fg = palate.fg }), -- Identifier
+		sym("@type")({ fg = palate.fg }), -- Type
+		sym("@type.definition")({ fg = palate.fg }), -- Typedef
+		sym("@storageclass")({ fg = palate.fg }), -- StorageClass
+		sym("@structure")({ fg = palate.fg }), -- Structure
+		sym("@namespace")({ fg = palate.fg }), -- Identifier
+		sym("@include")({ fg = palate.fg }), -- Include
+		sym("@preproc")({ fg = palate.fg }), -- PreProc
+		sym("@debug")({ fg = palate.fg }), -- Debug
+		sym("@tag")({ fg = palate.fg }), -- Tag
 
 		-- Gitsigns highlight groups
 		GitSignsAdd({ fg = palate.green }),
