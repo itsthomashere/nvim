@@ -46,14 +46,14 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local palate = {
-	bg = hsl("#000000"),
-	fg = hsl("#fffaf0"),
+	bg = hsl("#1b1b1b"),
+	fg = hsl("#c0c0c0"),
 	red = hsl("#dc143c"),
 	yellow = hsl("#ffd700"),
 	blue = hsl("#0072bb"),
 	inlined_bg = hsl("#808080"),
 	float_bg = hsl("#242124"),
-	inlined = hsl("#f8f8ff"),
+	inlined = hsl("#f5f5f5"),
 	green = hsl("#32cd32"),
 	searched = hsl("#d99058"),
 	cursor = hsl("#c71585"),
@@ -265,7 +265,7 @@ local theme = lush(function(injected_functions)
 		sym("@text.underline")({ fg = palate.fg }), -- Underlined
 		sym("@text.todo")({ bg = palate.blue, fg = palate.inlined_bg }), -- Todo
 		sym("@comment")({ fg = palate.inlined_bg }), -- Comment
-		sym("@punctuation")({ fg = palate.cursor }), -- Delimiter
+		sym("@punctuation")({ fg = palate.fg }), -- Delimiter
 		sym("@constant")({ fg = palate.fg }), -- Constant
 		sym("@constant.builtin")({ fg = palate.fg }), -- Special
 		sym("@constant.macro")({ fg = palate.fg }), -- Define
