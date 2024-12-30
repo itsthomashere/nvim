@@ -192,7 +192,7 @@ local servers = {
 	tailwindcss = {},
 }
 
-if string.match(vim.uv.cwd(), "Projects/rust/rust") then
+if string.match(vim.fn.getcwd(), "^/home/dacbui308/Projects/rust/rust$") then
 	-- TODO: Remove this after 0.11 or 0.10.3
 	for _, method in ipairs({ "textDocument/diagnostic", "workspace/diagnostic" }) do
 		local default_diagnostic_handler = vim.lsp.handlers[method]

@@ -31,3 +31,4 @@ require("mini.notify").setup({
 		winblend = 5,
 	},
 })
+require("mini.statusline").setup()
