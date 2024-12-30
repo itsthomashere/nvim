@@ -1,6 +1,6 @@
 require("crates").setup({
 	completion = {
-		cmp = { enabled = true },
+		-- cmp = { enabled = true },
 	},
 	lsp = {
 		enabled = true,

@@ -46,8 +46,8 @@ local lush = require("lush")
 local hsl = lush.hsl
 
 local palate = {
-	bg = hsl("#1b1b1b"),
-	fg = hsl("#c0c0c0"),
+	bg = hsl("#000000"),
+	fg = hsl("#dadada"),
 	red = hsl("#dc143c"),
 	yellow = hsl("#ffd700"),
 	blue = hsl("#0072bb"),
